@@ -1,0 +1,64 @@
+{
+  "pages":[
+    
+         "pages/index/index",
+    "pages/forget/forget",
+"pages/changeInfo/editPassword/editPassword",
+           "pages/test/test",
+
+          
+        "pages/chat/chat",
+
+
+    "pages/message/message",
+    "pages/socket/socket",
+
+ 
+"pages/register/company/company",
+   "pages/register/person/person",
+ 
+
+
+ 
+"pages/changeInfo/editProject/editProject",
+        "pages/changeInfo/project/project",
+
+
+"pages/changeInfo/company/company",
+    
+
+    "pages/login/login",
+
+    "pages/companyDetail/companyDetail",
+    "pages/positionDetail/positionDetail",
+    "pages/logs/logs",
+
+    "pages/changeInfo/editEducation/editEducation",
+    "pages/changeInfo/editLabel/editLabel",
+    "pages/changeInfo/editExperience/editExperience",
+    "pages/changeInfo/person/person",
+    
+
+    
+    "pages/common/city/city",
+    "pages/common/positionItem/positionItem",
+
+    "components/toast/toast",
+    "components/popup/popup",
+    "components/tabBar/tabBar",
+    "components/typeTabBar/typeTabBar",
+    "components/search/search",
+    "components/header/header",
+    "components/sinput/sinput",
+    "components/loadmore/loadmore",
+    "components/select/select"
+   
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#0068B6",
+    "navigationBarTitleText": "家居人才网",
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#f5f5f5"
+  }
+}

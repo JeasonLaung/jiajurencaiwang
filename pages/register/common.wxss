@@ -1,0 +1,230 @@
+/* pages/changeInfo/editLabel/editLabel.wxss */
+.page{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: #fff;
+}
+/*www@qq.com*/
+.iconfont{
+	/*z-index: 999;*/
+}
+
+.form-item > .rt{
+	position: absolute;
+	right: 0rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form-item .rt{
+	margin-right: 20rpx;
+}
+
+
+.face{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin-top:60rpx;
+	border:6rpx solid #eee;
+	background: #f8f8f8;
+	height: 180rpx;
+	width: 180rpx;
+	border-radius: 90rpx;
+	color: #aaa;
+	font-size: 30rpx;
+	overflow: hidden;
+}
+
+
+sinput{
+	width: 100%;
+}
+.rp:before{
+	content: "*";
+	color: red;
+	display: inline-block;
+	margin-right: 10rpx;
+}
+.form-item.noborder{
+	border-top:none;
+	border-bottom: none;
+}
+.form-item:last-child{
+	border-bottom: 1rpx solid #eee;
+}
+.tags.ct{
+	justify-content: center;
+}
+.tags{
+	flex: 1;
+	overflow: scroll;
+	padding:0 30rpx ;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #fff;
+	align-items: center;
+}
+.tags .tag{
+	font-size:27rpx; 
+	padding:10rpx 50rpx;
+	border: 2rpx solid #ddd;
+	margin-right: 22rpx;
+	margin-left: 22rpx;
+	margin-top: 30rpx;
+	border-radius: 30rpx;
+	background-color: #fff;
+}
+.tags .tag.active{
+	color: #fff;
+	background-color: #0068B6;
+	border-color: #0068B6;
+}
+.addTag{
+	width: 300rpx;
+	background-color: #fff;
+	border: 5rpx solid rgb(10, 119, 200);
+	color:rgb(10, 119, 200);
+	line-height: 60rpx;
+	height: 60rpx;
+	text-align: center;
+	font-size: 30rpx;
+	border-radius: 30rpx;
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+	margin: 50rpx auto 50rpx;
+
+}
+.myTag{
+	position: relative;
+}
+.myTag .iconfont{
+	position: absolute;
+	top: -5rpx;
+	right: 5rpx;
+	font-size: 30rpx;
+	color: rgba(255,255,255,.8);
+}
+.tabBar{
+
+}
+.tabBar-items{
+	padding: 20rpx 0 0;
+	display: flex;
+	/*border-bottom: 2rpx solid #ddd;*/
+	background-color: #fff;
+}
+.tabBar-border{
+	height: 4rpx;/*4*/
+	width: 100%;
+	/*position: fixed;*/
+	/*top: 126rpx;*/
+	position: relative;
+	background-color: #ddd;
+}
+.tabBar-border-tump{
+	position: absolute;
+	height: 4rpx;
+	background-color: #0068B6;
+	width: 20%;
+	left: 0;
+	transition: left .3s
+}
+.tabBar-item{
+	flex:1;
+	font-size: 25rpx;
+	text-align: center;
+	color: #999;
+	padding-bottom: 30rpx;
+	/*border-bottom: 4rpx solid #ddd;*/
+	position: relative;
+	box-sizing: border-box;
+}
+.tabBar-item.complete{
+	color: #333;
+}
+.tabBar-item.write{
+	color: #111;
+	transition:color .5s;
+}
+.tabBar-icon{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom:-25rpx;
+
+	margin: 0 auto;
+	color: #fff;
+	width: 50rpx;
+	height: 50rpx;
+	background-color: #0068B6;
+	border-radius: 50%;
+	border-left: 10rpx solid #fff;
+	border-right: 10rpx solid #fff;
+}
+.icon-tick{
+	/*transform: translateY(-5rpx);*/
+	font-size: 25rpx;
+	position: fixed;
+}
+.tabBar-item .iconfont{
+	font-size: 40rpx;
+}
+
+.icon-nopic{
+	font-size: 60rpx!important;
+}
+
+.page{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: #fff;
+}
+.swiper-pages{
+	flex:1;
+	overflow: scroll;
+	background-color: #fff;
+}
+.swiper-page{
+
+}
+.swiper-page{
+	height: 10000rpx;
+}
+
+.placearea{
+	height: 140rpx;
+	visibility: hidden;
+}
+.btn{
+	height: 98rpx;
+	padding: 20rpx 0;
+	border: 2rpx solid #ddd;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%
+}
+.submit{
+	flex: 1;
+	margin: 0 20rpx;
+}

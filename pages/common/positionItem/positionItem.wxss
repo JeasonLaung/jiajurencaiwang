@@ -1,0 +1,93 @@
+/* pages/common/positionItem/positionItem.wxss */
+.positionItem{
+  height: 150rpx;
+  padding: 35rpx 26rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-bottom: 15rpx;
+  align-items: center;
+}
+.positionItem:active{
+  background-color: #f9f9f9;
+}
+.positionItem-company-logo{
+  height: 150rpx;
+  width: 150rpx;
+  border: 2rpx solid #eee;
+  box-sizing: border-box;
+  /* background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; */
+  /* border: 1px solid #333; */
+}
+.positionItem-company-logo .logo{
+  height: 150rpx;
+  width: 150rpx;
+}
+.positionItem-position-detail{
+  width: 513rpx;
+  /* border: 1px solid #333; */
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.positionItem-position-name{
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.positionItem-company-name{
+  font-size: 24rpx;
+  color: #666;
+}
+.positionItem-salary{
+  color: #0068b6;
+}
+.positionItem-tag{
+  display: flex;
+  flex-direction: row;
+  font-size: 22rpx;
+  justify-content: space-between;
+  color: #999;
+}
+.positionItem-tag-body{
+  display: flex;
+  flex-direction: row;
+}
+.positionItem-tag-item{
+  padding:5rpx 20rpx;
+  margin-right: 20rpx;
+  background-color: #f5f5f5;
+  
+}
+
+.loading{
+  height: 100rpx;
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 30rpx;
+}
+.loading .image{
+  margin-right: 20rpx;
+  height: 50rpx;
+  width: 50rpx;
+  animation: move 1s ease-in-out alternate infinite;
+  transform: rotate(20deg);
+  transform-origin: bottom center;
+}
+@keyframes move{
+  from {
+    transform: rotate(20deg);
+  }
+  to{
+    transform: rotate(-20deg);
+  }
+}

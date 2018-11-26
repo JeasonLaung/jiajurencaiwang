@@ -1,0 +1,150 @@
+<!--index.wxml-->
+<!-- 因为小程序wxml内部不能使用函数所以要用wxs -->
+<wxs module="m1" src="../common/wxs/common.wxs"></wxs>
+<import src="../templates/loginType/loginType"/>
+
+    <!-- getTypeBarIndex 输出 index供 popup用 -->
+    <!-- 类别选择 -->
+
+  <!-- 职位页 -->
+  <view class="position-page" wx:if="{{tabBarActive==0}}">
+    <!-- 
+    
+        fixed
+    
+    
+    -->
+        <typeTabBar type_arr='{{typeBarArr}}' bind:click="getTypeBarIndex" activeIndex="{{typeBarIndex}}" badge_arr="{{badgeArr}}"></typeTabBar>
+
+      <!-- 弹窗选择 -->
+      <!-- 推荐 -->
+      <popup top="88rpx" show="{{tempTypeBarIndex == 0  && popupAllowed}}" position="top" bind:hide="resetRecommend" class="recommendTabBar">
+        <view class="recommendTabBar-item {{recommend ? 'active' : ''}}" bindtap="recommendChoose">
+          <view  class="recommendTabBar-item-body">推荐<icon class="iconfont icon-tick"></icon></view>
+          <view class="recommendTabBar-item-place"></view>
+        </view>
+        <view class="recommendTabBar-item {{!recommend ? 'active' : ''}}" bindtap="newChoose">
+          <view class="recommendTabBar-item-body">最新<icon class="iconfont icon-tick"></icon></view>
+          <view class="recommendTabBar-item-place"></view>
+        </view>
+      </popup>
+
+      <!-- 选择地区 -->
+      <!-- 直接跳转,在js上解决 -->
+      <!-- <popup top="88rpx" show="{{tempTypeBarIndex == 1}}" position="top" bind:hide="resetTypeBar"></popup> -->
+
+      <!-- 岗位类型 -->
+      <popup top="88rpx" show="{{tempTypeBarIndex == 2 && popupAllowed}}" position="top" bind:hide="hideJobTypePopup" class="jobTypeTabBar">
+        <view class="jobTypeTabBar-body">
+          <view class="jobTypeTabBar-item {{ jobType == false ? 'active' : ''}}" bindtap='resetJobType'>全部</view>
+          <view class="jobTypeTabBar-item {{ m1.isContain(jobType,item.job_name) ? 'active' : ''}}" wx:for="{{jobTypeArr}}" wx:key="id" bindtap='jobTypeChoose' data-position='{{item.job_name}}'>
+            {{item.job_name}}
+          </view>
+        </view>
+        <view class="popup-submit" bindtap='jobTypeSubmit'>确定</view>
+      </popup>
+
+
+      <!-- 要求 -->
+      <popup top="88rpx" show="{{tempTypeBarIndex == 3 && popupAllowed}}" position="top" bind:hide="hideDemandPopup">
+        <view class="demandTabBar">
+          <view wx:for="{{demandArr}}" wx:key="index" class="demandTabBar-container" wx:for-index="demandIndex">
+            <view class="demandTabBar-title">{{item.title}}</view>
+            <view class="demandTabBar-body">
+              <view class="demandTabBar-item {{ !demand[demandIndex] ? 'active' : ''}}" bindtap='resetDemand' data-index="{{demandIndex}}">全部</view>
+              <view class="demandTabBar-item {{ demand[demandIndex] == i.query ? 'active' : ''}}" bindtap="demandChoose"  wx:for="{{item.data}}" wx:for-item="i" wx:key="index" data-query='{{i.query}}' data-index="{{demandIndex}}">
+                {{i.name}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="popup-submit" bindtap='demandSubmit'>确定</view>
+      </popup>
+      <!-- 搜索功能 -->
+      <search bind:search="search" bind:reset="resetSearch" placeholder="请输入搜索关键字" style="position:fixed;top:90rpx;width:100%;"></search>
+    <!-- 
+    
+    
+    nofixed 
+    
+    
+    
+    -->
+    <view class="position-header">
+      <!-- typeTabBar :type_arr  -->
+    </view><!-- header -->
+    <!-- 类别占位符 -->
+    <!-- 职位信息 -->
+    <scroll-view scroll-y	bindscrolltolower="loadMorePage" class="position-container" lower-threshold="0"  bindscroll="positionScroll" scroll-top="{{positionScrollTop}}" scroll-with-animation="true">
+    <!-- srcoll-top="{{positionSrcollTop}}" lower-threshold="0" bindscroll="ReachBottom"-->
+      <positionItem dataArr="{{positionArr}}" dayAgoArr="{{positionDayAgo}}" bind:goLink="positionGoLink"></positionItem>
+      <loadmore iconPath="../../image/loading.png" showLoad="{{!nomore && loadingDiv}}" bindtap="loadMoreCompany"></loadmore>
+      <view class="nomore" wx:if="{{nomore}}">没有更多了</view>
+      <view class="backTop {{ positionTop>900 ? 'active' :''}}" bindtap="positionBackTop"><icon class="iconfont icon-top"></icon></view>
+    </scroll-view>
+    
+    <!-- tabbar占位 -->
+    <view style="height:100rpx;"></view>
+  </view>  <!-- 职位页 -->
+  <!-- <view style='margin-top:300rpx'>{{abc}}</view> -->
+
+
+  <!-- 公司页 -->
+  <view class="company-page" wx:if="{{tabBarActive==1}}">
+      <!-- 搜索功能 -->
+      <search bind:search="companySearch" bind:reset="refreshCompany" placeholder="请输入搜索关键字"></search>
+      <scroll-view scroll-y bindscrolltolower="loadMoreCompany" lower-threshold="0"  class="company-container">
+        <view class="company-body">
+          <block wx:for="{{companyArr}}" wx:key="index">
+            <view class="company-item" bindtap='companyGoLink' data-id="{{item.id}}">
+              <view class="company-item-logo">
+                <image  mode="aspectFit" lazy-load src="{{item.logo != null ? host+item.logo : ''}}" class="logo"></image>
+              </view>
+              <view class="company-item-name">{{item.name}}</view>
+              <view class="company-item-city">{{m1.delLastWord(item.province)}}，{{m1.delLastWord(item.city)}}</view>
+            </view>
+          </block>
+        </view>
+        <!-- 加载更多 -->
+        <loadmore iconPath="../../image/loading.png" showLoad="{{!companyNoMore && companyLoadingDiv && companyArr!=false}}" bindtap="loadMoreCompany"></loadmore>
+        <!-- 没有更多 -->
+        <view class="nomore" wx:if="{{companyNoMore}}">没有更多了</view>
+        <!-- 置顶 -->
+        <!-- <view class="backTop {{ companyTop>900 ? 'active' :''}}" bindtap="companyBackTop"><icon class="iconfont icon-top"></icon></view> -->
+      </scroll-view>
+      <!-- tabbar占位 -->
+      <view style="height:100rpx;"></view>
+  </view>
+
+
+  <!-- 登录页面 -->
+  <view class="company-page" wx:if="{{tabBarActive==2 && logined == false}}">
+  <!--  wx:if="{{tabBarActive==2}}" -->
+  <!-- template完全依赖于page -->
+    <template is="loginType"></template>
+  </view>
+
+
+  <!-- 消息页面 -->
+  <view wx:if="{{tabBarActive==2 && logined == true}}" style="height:100%;dispaly:flex;flex-direction:column">
+    <message changeTag="{{1}}"></message>
+  </view>
+
+  <!-- 我的页面 -->
+  <view wx:if="{{tabBarActive==3 && logined == true}}">
+    <import src="../templates/me/me"/>
+    <template is="me" data="{{me}}"></template> 
+  </view>
+
+
+
+<!-- tabbar -->
+
+<tabBar tabBarArr="{{tabBarArr!=false ? tabBarArr : []}}"  style="" bind:changeTabBar="changeTabBar" tabBarActive="{{tabBarActive}}" wx:if="{{tabBarArr!=false}}"></tabBar>
+<!-- tabBarActive="{tabBarActive}}" -->
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+<!--pages/socket/socket.wxml-->
+<text>pages/socket/socket.wxml</text>
+发送的内容<input bindinput='_bindinput'></input>
+<button type="primary" bindtap='_sendmsg' size='large'>发送消息</button>

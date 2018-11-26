@@ -1,0 +1,7 @@
+{
+	"usingComponents":{
+		"popup":"../../components/popup/popup",
+		"prompt":"../../components/prompt/prompt",
+		"toast":"../../components/toast/toast"
+	}
+}

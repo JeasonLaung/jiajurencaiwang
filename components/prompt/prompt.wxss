@@ -1,0 +1,94 @@
+@import '../../app.wxss'
+.prompt{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 7777;
+}
+.icon-reset{
+	transform: translateY(-10rpx);
+	color: #ccc;
+}
+.prompt .container{
+	border:2rpx solid #ddd;
+	z-index: 8888;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom:150rpx;
+	top: 0;
+	max-height: 250rpx;
+	margin:auto auto;
+	width: 500rpx;
+	background-color: #fff;
+	padding:40rpx;
+	box-shadow: 0 4rpx 5rpx 3rpx rgba(55,55,55,.15);
+}
+.prompt .title{
+	margin-bottom: 37rpx;
+	color:#222;
+	font-weight: bold;
+}
+.prompt .message{
+	word-break: break-all;
+	white-space: break-word;
+	font-size: 32rpx;
+	text-overflow: ellipsis;
+	height: 120rpx;
+	overflow: scroll;
+}
+/*.prompt .focus{
+	position: fixed;
+	margin:0 auto;
+	left: 0;
+	right: 0;
+	top: auto;
+	bottom: 0;
+}*/
+.prompt .tip{
+	margin-bottom: -15rpx;
+	margin-top: 15rpx;
+	font-size: 25rpx;
+	color: rgba(0, 104, 182,.8);
+}
+.prompt .input{
+	display: flex;
+	
+}
+.prompt input{
+	border-bottom: 2rpx solid #eee;
+	font-size: 30rpx;
+	flex:1;
+}
+.prompt .sure{
+	width: 200rpx;
+	font-size: 28rpx;
+	display: flex;
+	position: absolute;
+	right: 40rpx;
+	bottom: 40rpx;
+}
+.prompt .yes{
+	color: #0068B6;
+	margin-left: 20rpx;
+}
+.prompt .no{
+	color: #999;
+}
+.prompt .yes,.prompt .no{
+	flex: 1;
+	text-align: center;
+	line-height: 1.5;
+}
+.prompt .mask{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+}
+.masking.mask{
+	background-color: rgba(0,0,0,.5);
+}

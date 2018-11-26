@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "修改信息",
+	"usingComponents":{
+		"toast":"../../../components/toast/toast",
+		"prompt":"../../../components/prompt/prompt"
+	}
+}

@@ -1,0 +1,8 @@
+<!--components/tabBar/tabBar.wxml-->
+<!-- <text>components/tabBar/tabBar.wxml</text> -->
+<view class="tabBar">
+  <view wx:for="{{tabBarArr}}" wx:key="index" class="tabBar-item {{tabBarActive == index ? 'active': ''}}" bindtap='changeTabBar' data-index='{{index}}'> 
+    <icon class="iconfont {{item.iconClass}}" style="{{item.iconStyle ? item.iconStyle: ''}}"></icon>
+    {{item.title}}
+  </view>
+</view>

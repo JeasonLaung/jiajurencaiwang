@@ -1,0 +1,176 @@
+/* pages/positionDetail/positionDetail.wxss */
+.icon-collect{
+
+}
+.icon-collected{
+  color: #E13535
+}
+.positionDetailPage{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.positionDetail{
+  flex:1;
+  overflow: scroll;
+}
+.positionDetail > .cell{
+  padding-left:20rpx;
+  padding-right: 20rpx;
+  background-color: #fff;
+}
+.positionHeader{
+  padding-top:40rpx;
+  padding-bottom: 40rpx;
+  margin-bottom: 15rpx;
+}
+.positionHeader-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130rpx;
+  font-size: 50rpx;
+
+}
+.positionHeader-tags{
+  display: flex;
+}
+.positionHeader-tag{
+  margin-right: 40rpx;
+  font-size: 30rpx;
+} 
+.positionHeader-tag > .iconfont{
+  margin-right: 5rpx;
+}
+
+
+
+.positionCompany{
+  padding-top:40rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.positionCompany-logo{
+  height: 120rpx;
+  width:120rpx;
+  margin-right: 30rpx;
+  border: 2rpx solid #eee;
+  box-sizing: border-box;
+  background-color: #eee;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.positionCompany-detail{
+  align-self: flex-start;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+.positionCompany-detail  .title{
+  margin-bottom: 10rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.positionCompany-detail  .city{
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.positionCompany-detail  .HR{
+  font-size: 26rpx;
+}
+
+.positionCompany-location{
+  border-top: 2rpx solid #f2f2f2;
+  font-size: 26rpx;
+  padding: 17rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom:15rpx; 
+}
+.positionCompany-location .iconfont{
+  transform: translateY(-10rpx)
+}
+
+.positionHeader-salary{
+  color:#0A77C8;padding:10rpx;font-size:30rpx
+}
+.connectHR{
+  height: 118rpx;
+  background-color: #fff;
+  border-top:2rpx solid #ddd;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  font-size: 32rpx;
+}
+.connect,.collect_job,.toudi{
+  position: relative;
+}
+.collect_job:before,.toudi:before,.connect:before{
+  width: 2rpx;
+  height: 50rpx;
+  background-color: #ddd;
+  position: absolute;
+  left: 0;
+  content: "";
+
+}
+.collect_job{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0 30rpx;
+}
+
+.connectHR .iconfont{
+  font-size: 55rpx;
+  margin-right: 10rpx; 
+}
+.connectHR .hr{
+ flex:1;
+  
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding:0 40rpx;
+
+}
+.connectHR .hr .n{
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 40rpx;
+  text-align: left;
+  font-weight: bold;
+}
+.connectHR .hr .p{
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  font-size: 28rpx;
+}
+.connectHR .connect{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    padding:0 30rpx;
+
+}
+.toudi{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    padding:0 30rpx;
+}
+.icon-ytd{
+  color: #56ABE4
+}

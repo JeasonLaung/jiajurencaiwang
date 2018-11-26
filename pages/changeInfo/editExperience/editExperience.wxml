@@ -1,0 +1,64 @@
+<!--pages/changeInfo/editExperience/editExperience.wxml-->
+<!-- <text>pages/changeInfo/editExperience/editExperience.wxml</text> -->
+<view class="editExperience">
+	
+
+<view class="form-list ">
+	<view class="form-item">
+		<view class="lf">
+			公司全称
+		</view>
+		<view class="bd">
+			<input type="text" placeholder="请输入公司全称" bindinput="companyInput" value="{{form.company}}"/>
+		</view>
+	</view>
+	<view class="form-item">
+		<view class="lf">
+			职位名称
+		</view>
+		<view class="bd">
+			<input type="text" placeholder="请输入职位名称" bindinput="positionInput"  value="{{form.title}}"/>
+		</view>
+	</view>
+
+
+	<view class="form-item">
+		<view class="lf">
+			入职时间
+		</view>
+		<picker mode="date" value="{{form.from}}" bindchange="fromChange" end="{{today}}">
+			<input type="text" placeholder="请选择入职时间" disabled="disabled" value="{{form.from}}"/>
+		</picker>
+		<view class="rt">
+			<icon class="iconfont icon-bottom"></icon>
+		</view>
+	</view>
+
+	<view class="form-item">
+		<view class="lf">
+			离职时间
+		</view>
+		<picker mode="date" value="{{form.to}}" bindchange="toChange" start="{{form.from}}" end="{{today}}">
+			<input type="text" placeholder="请选择离职时间" disabled="disabled" value="{{form.to}}"/>
+		</picker>
+		<view class="rt">
+			<icon class="iconfont icon-bottom"></icon>
+		</view>
+	</view>
+
+	<view class="form-item">
+		<view class="container">
+			<view style="margin-bottom:20rpx;">工作内容</view>
+			<textarea rows="5" bindinput="descriptionInput" value="{{form.description}}"></textarea>
+		</view>
+	</view>
+	<view class="form-item btn" style="border:none">
+		<view class="submit  {{canIsubmit ? '' : 'disabled'}}" style="flex:1" bindtap="submit">提交</view>
+	</view>
+	<view class="form-item btn" style="border:none">
+		<view class="delete" wx:if="{{form.id}}" style="flex:1" bindtap="delete">删除</view>
+	</view>
+</view>
+
+
+</view>

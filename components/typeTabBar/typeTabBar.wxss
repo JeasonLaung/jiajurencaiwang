@@ -1,0 +1,102 @@
+/* components/typeTabBar/typeTabBar.wxss */
+/*设置占位符和typeTab高度*/
+@import "../../icon.wxss";
+
+.typeTabBar-place,.typeTabBar{
+	height:88rpx;
+  color: rgb(102,102,102);
+}
+
+.typeTabBar{
+	position: fixed;
+  top: 0;
+	background-color: #fff;
+	width: 100%;
+  display: flex;
+  /* 比popup要高 */
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  border-bottom:2rpx solid #eee; 
+  
+}
+
+.typeTabBar-item{
+  flex: 1 1 0%;
+  text-align: center;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+.typeTabBar-item.active{
+  color:#0068B6;
+}
+.typeTabBar-item.active::after{
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 4rpx;
+  background-color: #0068B6;
+  animation: move .2s ease-in forwards;
+}
+@keyframes move{
+  from{
+    width: 0;
+  }
+  to{
+    width:100%;
+  }
+}
+
+.typeTabBar-item:active{
+  background-color: #f5f5f5;
+}
+.item-body{
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #eee;
+}
+.typeTabBar-item:last-child .item-body{
+  border-right: none;
+}
+.iconfont{
+  font-size: 20rpx;
+  margin: -15rpx -10rpx 0 10rpx;
+}
+
+
+
+.typeTabBar-item .badge{
+  position: absolute;
+  height: 32rpx;
+  width: 32rpx;
+  background-color: #0068B6;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 8rpx;
+  transform: translateX(20rpx);
+}
+
+
+
+
+.typeTabBar-palce{
+	background-color: transparent;
+}

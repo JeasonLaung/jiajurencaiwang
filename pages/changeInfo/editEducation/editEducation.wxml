@@ -1,0 +1,63 @@
+<!--pages/changeInfo/editEducation/editEducation.wxml-->
+<!-- <text>pages/changeInfo/editEducation/editEducation.wxml</text> -->
+
+<!-- to=2006-01-01&id=59&from=1970-01-01&degree=asd&major=asd&school=asd -->
+<view class="editEducation">
+<view class="form-list">
+	<view class="form-item">
+		<view class="lf">
+			学校
+		</view>
+	<view class="bd">
+			<input type="text" placeholder="请输入学校" bindinput="schoolInput"  value="{{form.school}}"/>
+		</view>
+	</view>
+		<view class="form-item">
+		<view class="lf">
+			专业
+		</view>
+		<view class="bd">
+			<input type="text" placeholder="请输入专业" bindinput="majorInput"  value="{{form.major}}"/>
+		</view>
+	</view>
+	<view class="form-item">
+		<view class="lf">
+			学历
+		</view>
+		<view class="bd">
+			<input type="text" placeholder="请输入学历" bindinput="degreeInput"  value="{{form.degree}}"/>
+		</view>
+	</view>
+
+	<view class="form-item">
+		<view class="lf">
+			开学时间
+		</view>
+		<picker mode="date" value="{{form.from}}" bindchange="fromChange" end="{{today}}">
+			<input type="text" placeholder="请选择开学时间" disabled="disabled" value="{{form.from}}"/>
+		</picker>
+		<view class="rt">
+			<icon class="iconfont icon-bottom"></icon>
+		</view>
+	</view>
+
+	<view class="form-item">
+		<view class="lf">
+			毕业时间
+		</view>
+		<picker mode="date" value="{{form.to}}" bindchange="toChange" start="{{form.from}}" end="{{today}}">
+			<input type="text" placeholder="请选择毕业时间" disabled="disabled" value="{{form.to}}"/>
+		</picker>
+		<view class="rt">
+			<icon class="iconfont icon-bottom"></icon>
+		</view>
+	</view>
+
+	<view class="form-item btn" style="border:none">
+		<view class="submit  {{canIsubmit ? '' : 'disabled'}}" style="flex:1" bindtap="submit">提交</view>
+	</view>
+	<view class="form-item btn" style="border:none">
+		<view class="delete" wx:if="{{form.id}}" style="flex:1" bindtap="delete">删除</view>
+	</view>
+</view>
+</view>

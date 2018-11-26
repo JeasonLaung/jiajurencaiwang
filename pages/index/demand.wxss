@@ -1,0 +1,48 @@
+.demandTabBar{
+  padding: 50rpx 26rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  
+}
+.demandTabBar-container:last-child{
+  margin-bottom: 20rpx;
+}
+.demandTabBar-container{
+  margin-bottom: 50rpx;
+}
+.demandTabBar-body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.demandTabBar-title{
+  font-size: 27rpx;
+  margin-bottom: 30rpx;
+}
+
+.demandTabBar-item.active{
+  border: 2rpx solid #0068B6;
+  background-color: #0068B6;
+  color: #fff;
+}
+.demandTabBar-item{
+  z-index: 1000;
+  padding: 5rpx 10rpx;
+  margin-top:20rpx;
+  width:179rpx;
+  border-radius: 10rpx;
+  height: 50rpx;
+  color: #666;
+  background-color: #fff;
+  border: 2rpx solid #ddd;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+/*前三个不需要marginbottom*/
+.demandTabBar-item:nth-child(1),
+.demandTabBar-item:nth-child(2),
+.demandTabBar-item:nth-child(3){
+  margin-top:0;
+}

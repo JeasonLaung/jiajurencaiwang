@@ -1,0 +1,86 @@
+<!--pages/message/message.wxml-->
+<wxs module="m1">
+	function getItTime(str){
+		return str.split(" ")[1]
+	}
+	function getItDate(str){
+		return str.split(" ")[0]
+	}
+	module.exports.getItTime = getItTime
+	module.exports.getItDate = getItDate
+</wxs>
+<view style="height:100%">
+	<view class="nav">
+		<view class="nav-item {{changeTag ? 'active' : ''}}" bindtap="changePage">消息</view>
+		<view class="nav-item {{changeTag ? '' : 'active'}}" bindtap="changePage">互动</view>
+	</view>
+	<view class="msg-bd" wx:if="{{changeTag}}">
+		<view class="place-nav" style="height:100rpx;"></view>
+		<view class="msg-page"></view>
+			<view class="msg-title">联系人</view>
+			<view class="msg-items">
+				<view class="positionItem" wx:for="{{userlist}}" wx:key="index" bindtap='goTalk' data-id="{{item.id}}">
+					<view class='company-logo'>
+						<image src="{{host+item.logo}}" class="logo" lazy-load mode="aspectFit" binderror="nopic"></image>
+					</view>
+				<view class="detail">
+					<view class="name">
+						<view class="company-name">
+							<text style="font-weight:bolder">{{item.name}}</text>
+							<text style="font-size:25rpx;">{{item.hr_data[0].hr_name}} {{item.hr_data[0].hr_position}}</text>
+						</view>
+					
+					<view class="newest_time" wx:if="{{item.newest_msg_time}}">
+						<text>{{m1.getItDate(item.newest_msg_time)}}</text>
+						<text>{{m1.getItTime(item.newest_msg_time)}}</text>
+					</view>
+					
+				</view>
+			    <view class="newest_msgmsg">{{item.newest_msg}}</view>
+			</view>
+		</view>
+		<view style="height:100rpx"></view>
+	</view>
+	</view>
+	<view class="msg-bd" style="height:100%;" wx:if="{{!changeTag}}">
+		<view class="place-nav" style="height:100rpx;"></view>
+		<view class="tab-body">
+			<view class="tab">
+				<view class="tab-item {{tabIndex==0?'active':''}}" bindtap="tapToChange" data-id="0">看过我</view>
+				<view class="tab-item {{tabIndex==1?'active':''}}" bindtap="tapToChange" data-id="1">我的投递</view>
+				<view class="tab-item {{tabIndex==2?'active':''}}" bindtap="tapToChange" data-id="2">我的收藏</view>
+				<view class="tab-item {{tabIndex==3?'active':''}}" bindtap="tapToChange" data-id="3">收到面试邀请</view>
+			</view>
+			<view class="tab-border">
+				<view class="tab-thumb" style="width:{{tabIndex == 3 ? '250rpx' : '167rpx'}};left:{{tabIndex*167}}rpx"></view>
+			</view>
+		</view>
+		<swiper class="msg-items" bindchange="tabChange" current="{{tabIndex}}">
+			<swiper-item class="msg-items">
+				<view>
+					<positionItem dataArr="{{myVisitorArr}}"  bindgocLink="gocLink"></positionItem>
+				</view>
+			</swiper-item>
+			<swiper-item class="msg-items">
+				<!-- <view wx:if="{{tabIndex==1}}"> -->
+				<view>
+					<positionItem dataArr="{{myDeliveryArr}}" bindgoLink="goLink"></positionItem>
+				</view>
+			</swiper-item>
+			<swiper-item class="msg-items">
+				<view>
+					<positionItem dataArr="{{myCollectArr}}" bindgoLink="goLink"></positionItem>
+				</view>
+				
+			</swiper-item>
+			<swiper-item class="msg-items">
+				<view>
+					<positionItem dataArr="{{myOfferArr}}"  bindgocLink="gocLink"></positionItem>
+				</view>
+			</swiper-item>
+		</swiper>
+		<view style="height:100rpx"></view>
+	</view>
+
+</view>
+

@@ -1,0 +1,46 @@
+/* pages/companyDetail/companyDetail.wxss */
+.companyDetail{
+  
+
+}
+.company-short{
+  padding: 30rpx 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 2rpx solid #eee;
+  background-color: #fff;
+}
+.company-logo{
+  height: 120rpx;
+  width: 120rpx; 
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 35rpx;
+}
+.company-extra{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.company-name{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+.company-city{
+  font-size: 30rpx;
+  color: #999;
+}
+.location{
+  padding: 20rpx;
+  font-size: 20rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}

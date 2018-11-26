@@ -1,0 +1,50 @@
+.me{
+	height: 100%;
+	background-color: #fff;
+}
+.userheader{
+	height: 448rpx;
+	width: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	color: #fff;
+	font-size: 21rpx;
+	display: flex;
+	align-items: center;
+	padding:0 20rpx;
+}
+
+.userheader .logo{
+	height: 150rpx;
+	width:150rpx;
+	border-radius: 50%;
+	border:6rpx solid #fff;
+	background-repeat: no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: center;
+	
+}
+.detail{
+	margin-left: 30rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 150rpx;
+}
+.detail .name{
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.detail .point{
+	font-size: 23rpx;
+}
+.lv{
+	display: flex;
+	margin-bottom: 20rpx;
+}
+
+.showResume{
+	display: flex;
+	justify-content: flex-end;
+}

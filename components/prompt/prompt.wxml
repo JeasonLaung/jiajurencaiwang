@@ -1,0 +1,22 @@
+<view class="prompt" wx:if="{{prompt}}" style="{{zindex?'z-index:'+zindex:''}}">
+	<view class="container">
+		<view class="title">{{title ? title : '标题'}}</view>
+		<view class="body" wx:if="{{type=='prompt'}}">
+			<!-- 默认prompt -->
+			<view class="input">
+				<input type="text" placeholder="{{placeholder?placeholder:'请输入'}}" bindinput="_refreshInput" value="{{string}}" maxlength="{{maxLength ? maxLength : -1}}" bindconfirm="_yes" auto-focus/>
+				<view><icon class="iconfont icon-reset" catchtap="_reset" wx:if="{{stringLength>0}}"></icon></view>
+			</view>
+			<view class="tip" wx:if="{{maxLength}}">还可以输入{{maxLength-stringLength < 0 ? 0 :maxLength-stringLength}}个字</view>
+		</view>
+		<view class="body" wx:if="{{type=='alert' || type=='confirm'}}">
+			<view class="message">{{message}}</view>
+		</view>
+		
+		<view class="sure">
+			<view class="no" catchtap="_no" wx:if="{{type!='alert'}}">{{cancel ? cancel :'取消'}}</view>
+			<view class="yes" catchtap="_yes">{{confirm ? confirm : '确定'}}</view>
+		</view>
+	</view>
+	<view class="mask {{masking ? 'masking' : ''}}" catchtap="_no"></view>
+</view>

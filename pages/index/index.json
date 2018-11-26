@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "家具人才网",
+  "navigationBarTextStyle": "white",
+	"usingComponents":{
+		"popup":"../../components/popup/popup",
+    "typeTabBar":"../../components/typeTabBar/typeTabBar",
+    "search":"../../components/search/search",
+    "sinput":"../../components/sinput/sinput",
+    "positionItem":"../common/positionItem/positionItem",
+    "loadmore":"../../components/loadmore/loadmore",
+    "tabBar": "../../components/tabBar/tabBar",
+    "message": "../message/message"
+	}
+}

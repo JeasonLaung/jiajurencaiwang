@@ -1,0 +1,182 @@
+.chat-page{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.chat-body{
+	flex: 1;
+	overflow: scroll;
+	background-color: #f5f5f5;
+
+}
+.chat-tool{
+	z-index: 9999;
+	position: fixed;
+	background-color: #fff;
+	width: 100%;
+	bottom: 0;
+}
+.chat-input{
+	/*padding: 0 20rpx;*/
+	display: flex;
+	/*align-items: center;*/
+	/*height: 98rpx;*/
+	border-top: 2rpx solid #ccc;
+
+	/*overflow: auto;*/
+	
+	align-items: flex-end;
+	width: 100%;
+	
+	background-color: #fff;
+}
+.chat-input .submit{
+	height: 70rpx;
+	line-height: 70rpx;
+	text-align: center;
+	padding:0rpx 20rpx;
+	font-size: 30rpx;
+	margin:20rpx;
+	width: 80rpx;
+}
+.fastMsg-body{
+	border-top: 1rpx solid #ddd;
+	background-color: #fff;
+	width:100%;
+	/*padding-top: 40rpx; */
+}
+.fastMsg{
+	font-size: 30rpx;
+	color: #666;
+	/*margin-bottom: 40rpx;*/
+	padding:40rpx 20rpx 20rpx;
+}
+.fastMsg:active,.addFastMsg:active{
+	background-color: #f8f8f8;
+}
+.addFastMsg{
+	color:#59b3f6;
+	height: 90rpx;
+	line-height: 90rpx;
+	text-align: center;
+	font-size: 33rpx;
+	border-top: 1rpx solid #ddd;
+}
+.icon-add{
+	transform: translateY(-7rpx);
+	margin-right: 10rpx;
+}
+.icon-biaoqing{
+	font-size: 60rpx;
+	margin-bottom: 20rpx;
+	margin-left: 20rpx;
+}
+.chat-text{
+	height: 100rpx;
+	flex: 1;
+	border-bottom: 2rpx  solid #ccc;
+	margin-top: 20rpx;
+	line-height: 0;
+	margin-bottom: 20rpx;
+
+}
+.send.submit{
+	/*padding: 15rpx 40rpx;*/
+}
+.one-chat{
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 30rpx;
+}
+.one-chat:first-child{
+	margin-top: 30rpx;
+}
+.one-chat .logo{
+height:100rpx;width:100rpx;
+border-radius: 100%;
+border: 1rpx solid #ddd
+}
+.Isay{
+	margin-right: 30rpx;
+	justify-content: flex-end;
+
+}
+.othersay{
+	margin-left: 30rpx;
+	justify-content: flex-start;
+}
+.qipao{
+	border-radius: 10rpx;
+	padding: 20rpx;
+	background-color: #9FC0F4;
+	width: auto;
+	max-width: 350rpx;
+	word-break: break-all;
+	white-space: wrap;
+	color:#333;
+	font-size: 35rpx;
+}
+.Isay .qipao{
+	margin-right: 30rpx;
+	position: relative;
+}
+.Isay .qipao:after{
+	content: "";
+	display: block;
+	border:20rpx solid transparent;
+	border-left: 20rpx solid #9FC0F4;
+	position: absolute;
+	right: -30rpx;
+	top:20rpx;
+}
+.othersay .qipao{
+	margin-left: 30rpx;
+	position: relative;
+}
+.othersay .qipao:before{
+	content: "";
+	display: block;
+	border:20rpx solid transparent;
+	border-right: 20rpx solid #9FC0F4;
+	position: absolute;
+	left: -30rpx;
+	top:20rpx;
+}
+.rich-text{
+	font-size: 33rpx!important;
+	/*overflow: scroll;*/
+	line-height: 1.5;
+	/*max-height: 300rpx;*/
+	max-width: 350rpx;
+}
+.emoji-ban{
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 20rpx;
+	padding-right:30rpx; 
+}
+.emoji{
+	height: 50rpx;
+	width: 50rpx;
+	margin-left: 30rpx;
+	margin-bottom: 20rpx;
+	transition: transform .2s
+}
+.emoji:active{
+	transform: scale(1.2);
+}
+.prompt{
+	z-index: 10000;
+}
+
+.addPic{
+	/*width: 80rpx;*/
+
+}
+.addPic .icon-add{
+	height: 100%;
+	font-size: 60rpx;
+	margin: 0 20rpx 20rpx;
+	transform: translateY(-.6rpx);
+}

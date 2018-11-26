@@ -1,0 +1,58 @@
+
+ <!-- <view class="modalDlg" wx:if="{{showModal}}">
+ 
+        <view class='close_mask' bindtap="close_mask">X</view>
+        <input class='recharge_amount' type='text' placeholder='充值金额' maxlength="8" value='{{recharge_amount}}'></input>
+        <button class='save_money' type='submit'>立即充值</button>
+      </view>
+      <button class='recharge' bindtap="submit">充值</button>
+      <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view> -->
+<!-- 
+<navigator url="../common/city/city">{{abc}}</navigator>
+
+<input bindinput='inputAction'></input>
+<search bind:search="s"></search>
+
+<tabBar tabBarActive="0"></tabBar> -->
+<!-- <import src="../templates/loginType/loginType"/>
+<template is="loginType"></template> -->
+
+<!-- <button bindtap="show">123456789</button> -->
+<!-- <import src="../templates/me/me"/>
+<template is="me"></template>  -->
+<!-- <button bindtap="prompt">123456</button>
+{{string}}
+<prompt id="prompt" bind:yes="addTags"></prompt> -->
+
+<!-- <view>
+  <view>{{year}}年{{month}}月{{day}}日</view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{proArr}}" style="line-height: 50px">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{cityArr}}" style="line-height: 50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{schools}}" style="line-height: 50px">{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view> -->
+
+<!-- <select title="{{title}}" range="{{range}}" bindchange="change" key="school_name"></select> -->
+
+<!-- <select title="{{title}}" range='{{range2}}' bindchange="change" data-to="12345789" mode="multiSelector" show="true" keys="{{['school_name','school_id']}}"></select> -->
+<!-- <select title="{{title}}" range="" bindchange="change" data-to="12345789" mode="time"></select> -->
+
+<!-- <div class="form-item">
+  <picker mode="multiSelector" range="{{[[1,2,3,4],[1,2,3,4,5]]}}" bindchange="change">
+    <input type="text" placeholder="哈哈哈"/>
+  </picker>
+</div> -->
+
+<!-- <botton bindtap="changeTitle">改变</botton> -->
+
+<!-- value:"沈阳" -->
+<!-- <city-select bindchange="change" title="期待工作地点"></city-select> -->
+<!-- <college-select bindchange="change"></college-select> -->
+<message changeTag="{{false}}"></message>

@@ -1,0 +1,58 @@
+/* pages/changeInfo/editLabel/editLabel.wxss */
+.editLabel{
+	height: 100%;
+	background-color: #fff;
+
+	display: flex;
+	flex-direction: column;
+}
+.editLabel .submit{
+	margin-bottom: 0;
+}
+.tags.ct{
+	justify-content: center;
+}
+.tags{
+	flex: 1;
+	overflow: scroll;
+	padding:0 30rpx 30rpx;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #f9f9f9;
+}
+.tags .tag{
+	font-size:25rpx; 
+	padding:10rpx 50rpx;
+	border: 2rpx solid #ddd;
+	margin-right: 45rpx;
+	margin-top: 30rpx;
+	border-radius: 30rpx;
+	background-color: #fff;
+}
+.tags .tag.active{
+	color: #fff;
+	background-color: #0068B6;
+	border-color: #0068B6;
+}
+.addTag{
+	margin: 30rpx auto 30rpx;
+	border: 5rpx solid rgb(10, 119, 200);
+	color:rgb(10, 119, 200);
+	line-height: 60rpx;
+	height: 60rpx;
+	text-align: center;
+	font-size: 30rpx;
+	border-radius: 30rpx;
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+}
+.myTag{
+	position: relative;
+}
+.myTag .iconfont{
+	position: absolute;
+	top: -5rpx;
+	right: 5rpx;
+	font-size: 30rpx;
+	color: rgba(255,255,255,.8);
+}

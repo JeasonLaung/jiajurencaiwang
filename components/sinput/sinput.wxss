@@ -1,0 +1,28 @@
+/* components/sinput/sinput.wxss */
+@import '../../icon.wxss';
+
+.sinput{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.sinput-input{
+  height: 100%;
+  flex: 5;
+}
+.icon-place{
+  flex: .5 1 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+/* .icon-reset{
+  color: #999;
+  transform: translateY(-15%)
+} */
+.icon-reset{
+  position: absolute;
+  color: #999;
+  transform: translateY(-15%)
+}

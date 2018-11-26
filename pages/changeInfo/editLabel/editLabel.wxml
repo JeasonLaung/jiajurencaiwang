@@ -1,0 +1,27 @@
+<!--pages/changeInfo/editLabel/editLabel.wxml-->
+<!-- <text>pages/changeInfo/editLabel/editLabel.wxml</text> -->
+<wxs module="m1">
+	function isIn(a,b){
+		return b.indexOf(a) == -1 ? false : true
+	}
+	module.exports.isIn = isIn
+</wxs>
+<view class="editLabel" wx:if="{{labelArr != false}}">
+	<view class="title"></view>
+	<view class="tags ct">
+		<block wx:for="{{labelArr}}" wx:key="{{item.id}}">
+			<view class="tag {{m1.isIn(item.id,label) ? 'active' : ''}}" data-id="{{item.id}}" bindtap="chooseTag">{{item.label_name}}</view>
+		</block>
+		<block wx:for="{{myLabel}}" wx:key="{{item.id}}" wx:if="{{myLabel!=false}}">
+			<view class="tag active myTag" catchtap="chooseMyTag">{{item.label_name}}<icon class="iconfont icon-reset" catchtap="delTag" data-id="{{item.id}}"></icon></view>
+		</block>
+	</view>
+	<view style="border-top:1rpx solid #ddd;padding:0 200rpx;">
+		<view class="addTag" bindtap="prompt">新建自己的标签</view>
+	</view>
+	<view class="submit {{canIsubmit ? '' : 'disabled'}}" style="margin:0 20rpx 20rpx;" bindtap="submit">确认</view>
+</view>
+
+
+<prompt id="prompt" bind:yes="addTag"></prompt>
+<toast id="toast"></toast>

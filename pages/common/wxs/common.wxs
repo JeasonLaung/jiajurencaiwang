@@ -1,0 +1,9 @@
+function isContain(arr, child) {
+  return arr.indexOf(child) == -1 ? false : true
+}
+function delLastWord(value) {
+  if(!value){return;}
+  return value.slice(0, value.length - 1)
+}
+module.exports.delLastWord = delLastWord
+module.exports.isContain = isContain

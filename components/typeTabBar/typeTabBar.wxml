@@ -1,0 +1,15 @@
+<!--components/typeTabBar/typeTabBar.wxml-->
+<!-- 引入公共wxs -->
+<!-- <wxs src="../common/common.wxs" module="m1"></wxs> -->
+<!-- taypeTabBar :type_arr(传入标题) @trigger:index(输出index) -->
+<view class="typeTabBar">
+  <view class="typeTabBar-item {{activeIndex == index ? 'active' : ''}}" wx:for="{{type_arr}}" wx:key="index" catchtap='activeAction' data-index='{{index}}' >
+    <view class="item-body">
+      {{item}}<icon class="iconfont icon-bottom"></icon>
+      <view class="badge" wx:if="{{badge_arr[index]}}">{{badge_arr[index]}}</view>
+    </view>
+  </view>
+</view>
+<!-- 占位 -->
+<!-- <view class="typeTabBar-place"></view> -->
+

@@ -1,0 +1,245 @@
+      <!-- tab3次切换   -->
+<wxs module="m1">
+	function isIn(a,b){
+		return b.indexOf(a) == -1 ? false : true
+	}
+	module.exports.isIn = isIn
+</wxs>
+<view class="page">
+	<view class="tabBar">
+		<view class="tabBar-items">
+			<block wx:for="{{tabBarArr}}" wx:key="index">
+				<view class="tabBar-item {{currentTab == index ? 'write' : ''}} {{currentTab > index ? 'complete' : ''}}" bindtap="onPageChange" data-index="{{index}}">
+					<view><icon class="iconfont icon-{{item.icon}}"></icon></view>
+					<view>{{item.title}}</view>
+					<view wx:if="{{currentTab > index}}" class="tabBar-icon" style="z-index:10"><icon class="iconfont icon-tick"></icon></view>
+					<!-- <view wx:if="{{currentTab == index}}" class="tabBar-icon"><icon class="iconfont icon-tick"></icon></view> -->
+				</view>
+			</block>
+		</view>
+		<view class="tabBar-border">
+			<view class="tabBar-border-tump" style="left:{{150*currentTab}}rpx"></view>
+		</view>
+	</view>
+
+	
+	<!-- <view class="swiper"> -->
+		<swiper current="{{currentTab}}" duration="300"  bindchange="onPageChange" class='swiper-pages'> 
+			<swiper-item class="swiper-page" wx:if="{{!registerSuccess}}">
+				<scroll-view scroll-y style="height:100%" >
+					<!-- face -->
+					<view class="form-list">
+					<view class="form-item noborder">
+						<view class="bd ct" >
+							<view class="face" bindtap="upload">
+								<view wx:if="{{!form.info.logo}}">
+									<icon class="iconfont icon-nopic"></icon>
+									<view>上传头像</view>
+								</view>
+								<image src="{{host+form.info.logo}}" wx:if="{{form.info.logo}}" mode="aspectFit" style="width:180rpx;height:180rpx"></image>
+							</view>
+						</view>
+					</view><!-- face -->
+
+					<!-- 文本 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>真实姓名</view>
+						<view class="bd">
+							<sinput placeholder="请输入真实姓名" bind:input='onInput' data-to="info.name"  bind:reset="onInput" value="{{form.info.name}}"></sinput>
+						</view>
+					</view><!-- 文本 -->
+
+					<!-- 选择 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>性别</view>
+						<picker value="{{form.info.gender}}" bindchange="onSexChange" range="{{sexArr}}" >
+							<input type="text" placeholder="请选择性别" disabled="disabled" value="{{sex}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					<!-- 选择 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>出生日期</view>
+						<picker value="{{birth}}" bindchange="onBirthChange" mode="date" end="{{endDate}}">
+							<input type="text" placeholder="请选择出生日期" disabled="disabled" value="{{birth}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					<!-- 选择 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>学历</view>
+						<picker value="{{form.info.degree}}" bindchange="onChange" range="{{degreeArr}}" data-to="info.degree" data-from="degreeArr">
+							<input type="text" placeholder="请选择学历" disabled="disabled" value="{{form.info.degree}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+					<!-- 选择 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>工作经验</view>
+						<picker value="{{form.info.experience}}" bindchange="onChange" range="{{experienceArr}}" data-to="info.experience">
+							<input type="text" placeholder="请选择工作经验" disabled="disabled" value="{{experienceArr[form.info.experience]}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+					
+
+					<!-- 文本 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>电子邮箱</view>
+						<view class="bd">
+							<sinput placeholder="请输入电子邮箱" bind:input="onInput" data-to="info.email" bind:reset="onInput" bind:blur="checkEmail" value="{{form.info.email}}"></sinput>
+						</view>
+					</view><!-- 文本 -->
+					</view>
+				</scroll-view>
+			</swiper-item>
+			<swiper-item class="swiper-page" wx:if='{{currentTab>0 && !registerSuccess}}'>
+				<view class="form-list">
+					<view class="form-item" style="margin-top:50rpx;">
+						<view class="lf"><text class="rp"></text>院校</view>
+						<picker bindchange="onCollegeChange" range="{{[collegeProvinceArr,collegeCityArr,collegeArr]}}" mode="multiSelector" bindcolumnchange="onCollegeColumnChange">
+							<input type="text" placeholder="请选择院校" disabled="disabled" value="{{form.college._school_name}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					<view class="form-item" wx:if="{{form.college._school_id}}">
+						<view class="lf"><text class="rp"></text>届数</view>
+						<picker bindchange="onChange" range="{{schoolYearArr}}" value="{{schoolYear}}" data-to="schoolYear" data-from="schoolYearArr"  data-after="loadMajor">
+							<input type="text" placeholder="请选择届数" disabled="disabled" value="{{schoolYear ? schoolYear + '年' : ''}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					<view class="form-item" wx:if="{{schoolYear}}">
+						<view class="lf"><text class="rp"></text>院系专业</view>
+						<picker bindchange="onMajorChange" range="{{majorArr}}" value="{{form.college.major}}">
+							<input type="text" placeholder="请选择院系专业" disabled="disabled" value="{{form.college.major ? form.college.major : ''}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+				</view>
+			</swiper-item>
+			<swiper-item class="swiper-page" wx:if='{{currentTab>1 && !registerSuccess}}'>
+				<view class="form-list" style="margin-top:50rpx">
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>期待工作</view>
+						<picker bindchange="onChange" range="{{jobTypeArr}}" value="{{form.position.career}}" data-to="position.career" data-from="jobTypeArr">
+							<input type="text" placeholder="请选择期待工作" disabled="disabled" value="{{form.position.career ? form.position.career : ''}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>薪资水平</view>
+						<picker bindchange="onChange" range="{{salaryArr}}" value="{{form.position.salary}}" data-to="position.salary" data-from="salaryArr">
+							<input type="text" placeholder="请选择薪资水平" disabled="disabled" value="{{form.position.salary ? form.position.salary : ''}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>期待工作地点</view>
+						<picker bindchange="onCityChange" bindcolumnchange="onProvinceChange" mode="multiSelector" range="{{[positionProvinceArr,positionCityArr]}}">
+							<input type="text" placeholder="请选择期待工作地点" disabled="disabled" value="{{form.position.city ? form.position.city : ''}}"/>
+						</picker>
+						<view class="rt"><icon class="iconfont icon-bottom"></icon></view>
+					</view><!-- 选择 -->
+
+					 
+				</view>
+			</swiper-item>
+			<swiper-item class="swiper-page" wx:if='{{currentTab>2 && !registerSuccess}}'>
+				<scroll-view scroll-y style="height:100%">
+					<view style="text-align:center;font-weight:bolder;margin-top:50rpx">选择你的专属标签</view>
+					<view class="tags ct">
+					<block wx:for="{{labelArr}}" wx:key="{{item.id}}">
+						<view class="tag {{m1.isIn(item.id,label) ? 'active' : ''}}" data-id="{{item.id}}" bindtap="chooseTag">{{item.label_name}}</view>
+					</block>
+					<block wx:for="{{myLabel}}" wx:key="{{item.id}}" wx:if="{{myLabel!=false}}">
+						<view class="tag active myTag" catchtap="chooseMyTag">{{item.label_name}}<icon class="iconfont icon-reset" catchtap="delTag" data-id="{{item.id}}"></icon></view>
+					</block>
+				</view>
+					<view class="addTag" bindtap="prompt">新建自己的标签</view>
+				</scroll-view>
+			</swiper-item>
+			<swiper-item class="swiper-page" wx:if='{{currentTab > 3 && !registerSuccess}}'>
+				<view scroll-y style="height:100%" class="form-list">
+					<!-- 文本 -->
+					<view class="form-item" style="margin-top:50rpx">
+						<view class="lf"><text class="rp"></text>手机号</view>
+						<view class="bd">
+							<sinput type="number" placeholder="请输入手机号" bind:input='onInput' data-to="phone.phone"  bind:reset="onInput" bind:blur="checkPhone" maxlength="11"></sinput>
+						</view>
+					</view><!-- 文本 -->
+					<!-- 文本 -->
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>验证码</view>
+						<view class="bd">
+							<sinput type="number" placeholder="请输入验证码" bind:input='onInput' data-to="phone.captcha"  bind:reset="onInput"></sinput>
+						</view>
+						<view class="rt submit {{codeTime?'disabled':''}}" style="font-size:25rpx;width:170rpx;z-index:999;position:relative" bindtap="getCode">{{codeTime?codeTime+'s':codeTip}}</view>
+					</view><!-- 文本 -->
+
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>密码</view>
+						<view class="bd">
+							<sinput type="password" password="true" placeholder="请输入密码" bind:input='onInput' data-to="phone.password"  bind:reset="onInput"></sinput>
+						</view>
+					</view><!-- 文本 -->
+
+					<view class="form-item">
+						<view class="lf"><text class="rp"></text>确认密码</view>
+						<view class="bd">
+							<sinput type="password" password="true" placeholder="请输入确认密码" bind:input="onRepasswordInput" bind:blur="checkPassword"></sinput>
+						</view>
+					</view><!-- 文本 -->
+					
+				</view>
+			</swiper-item>
+			
+		</swiper>
+	<!-- </view> -->
+	<view class="swiper-page" wx:if='{{registerSuccess}}'>
+				<view style="height:170rpx;display:flex;justify-content:center;margin-top:100rpx;"><icon class="iconfont icon-tick" style="font-size:170rpx;color:#0068B6"></icon></view>
+				<view style="display:flex;justify-content:center;margin-top:50rpx;">注册成功!</view>
+	</view>
+	
+
+
+	<!-- 占位 -->
+	<view class="placearea"></view>
+
+	<view class="btn">
+		<view class="submit" bindtap="nextStep">{{currentTab < 4 ? "下一步" : (currentTab == 4 ? '注册' : '完成')}}</view>
+	</view>
+	
+
+</view>
+
+<toast id="toast"></toast>
+<prompt id="prompt" bind:yes="addTag"></prompt>
+<!-- <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">点菜</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">商家</view>
+     <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">筛选</view>
+</view>
+<swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" class='swiper-d'> 
+  <swiper-item>
+        <text>1111</text>
+      </swiper-item>  
+
+    <swiper-item>
+        <text>1211</text>
+      </swiper-item>  
+    <swiper-item>
+        <text>131</text>
+      </swiper-item>  
+
+</swiper>
+
+{{id}}
+<navigator open-type="navigateBack" delta="99"><botton>返回</botton></navigator>
+<botton bindtap="goto">123</botton> -->

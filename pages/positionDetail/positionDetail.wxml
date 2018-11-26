@@ -1,0 +1,89 @@
+<!--pages/positionDetail/positionDetail.wxml-->
+<!-- <text>pages/positionDetail/positionDetail.wxml</text> -->
+
+<import src="../../wxParse/wxParse.wxml"/>
+<wxs src="../common/wxs/common.wxs" module="m1"></wxs>
+<view class="positionDetailPage">
+<view class="positionDetail" wx:if="{{positionDetail}}">
+  <view class="positionHeader cell">
+    <view class="positionHeader-title">
+      <view style="font-weight:bold">{{positionDetail.title}}</view>
+      <view style="display:flex;justify-content:center;flex-direction:column;align-items:center" bindtap="collectJob">
+        <icon class="iconfont  {{collect ? 'icon-collected' : 'icon-collect'}}" style="font-size:40rpx"></icon>
+        <view style='font-size:20rpx'>{{collect ? '取消收藏' : '点击收藏'}}</view>
+      </view>
+    </view><!-- positionHeader-title -->
+
+    <view class="positionHeader-salary">
+      {{positionDetail.min_salary}}k-{{positionDetail.max_salary}}k
+    </view><!-- positionHeader-salary -->
+    <view class="positionHeader-tags">
+      <view class="positionHeader-tag">
+        <icon class="iconfont icon-location2"></icon><text>{{m1.delLastWord(positionDetail.city)}}</text>
+      </view>
+      <view class="positionHeader-tag">
+        <icon class="iconfont icon-experience"></icon><text>{{positionDetail.experience}}</text>
+      </view>
+      <view class="positionHeader-tag">
+        <icon class="iconfont icon-degree" style="font-size:30rpx;"></icon><text>{{positionDetail.degree}}</text>
+      </view>
+    </view><!-- positionHeader-tag -->  
+  </view><!-- positionHeader -->
+    <view class="positionCompany cell" bindtap="companyDetail" data-id="{{positionDetail.company_id}}">
+      <view class="positionCompany-logo" style="background-image:url({{host+positionDetail.company_info.company_logo}})">
+      
+      </view><!-- positionCompany-logo -->
+    <view class="positionCompany-detail">
+      <view>
+        <view class="title">{{positionDetail.company}}</view><!-- title -->
+        <view class="city">{{positionDetail.province}}{{positionDetail.city}}</view><!-- city -->
+      </view><!-- extra -->      
+      <view class="HR" wx:if="{{HRDetail}}">{{HRDetail.hr_position}} {{HRDetail.hr_name}}</view>
+    </view><!-- positionCompany-detail -->
+  </view><!-- positionCompany -->
+  <view class="positionCompany-location">
+    <icon class="iconfont icon-location" style="color:#0A77C8;margin-right:10rpx;"></icon>{{positionDetail.location}}
+  </view><!-- positionCompany-location -->
+  <view class="detail-cell">
+    <view class="title">
+      职位详情
+    </view>
+    <view class="body">
+      <!-- {{positionDetail.description}} -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+  <view class="detail-cell">
+    <view class="title">
+      福利待遇
+    </view>
+    <view class="body" wx:if="{{positionDetail.welfare != '暂无'}}">
+      {{positionDetail.welfare}}
+    </view>
+  </view>
+</view>
+  <view style="height:118rpx;"></view>
+</view>
+
+
+
+
+
+<view class="connectHR">
+  <view class="hr" wx:if="{{HRDetail.hr_name}}">
+    <view class="n">{{HRDetail.hr_name}}</view>
+     <view class="p">{{HRDetail.hr_position}}</view>
+  </view>
+  <view class="hr" wx:if="{{!HRDetail.hr_name}}">
+    暂无联系人
+  </view>
+  <view class="toudi" bindtap="deliveryJob">
+    <icon class="iconfont {{has_delivery ? 'icon-ytd' : 'icon-td' }}"></icon>{{has_delivery ? '已投' : '投递' }}
+  </view>
+  <view class='connect' bindtap="openChat">
+    <icon class="iconfont icon-message"></icon>联系
+  </view>
+  <view class="collect_job" bindtap="collectJob"><icon class="iconfont {{collect ? 'icon-collected' : 'icon-collect'}}"></icon></view>
+</view>
+
+<toast id="toast" bindtap="goToLogin"></toast>

@@ -1,0 +1,8 @@
+{
+	"usingComponents":{
+		"sinput":"/components/sinput/sinput",
+		"toast":"/components/toast/toast",
+		"prompt":"/components/prompt/prompt",
+		"city-select":"/pages/@components/city-select/city-select"
+	}
+}

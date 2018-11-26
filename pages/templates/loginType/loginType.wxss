@@ -1,0 +1,90 @@
+/* pages/templates/loginType/loginType.wxss */
+.loginType{
+  font-size: 25rpx;
+  color: #999;
+  height: 100% ;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 999;
+  transition: right .5s;
+}
+.loginType-container{
+  position: relative;
+  height: calc(100% - 100rpx);
+  
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.circle{
+  border-radius: 50%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+}
+/* rgba(255, 255, 255, 0.05)
+ */
+.c1{
+  top: 250rpx;
+  height: 600rpx;
+  width: 600rpx;
+  background-color: rgba(255, 255, 255, 0.02);
+ }
+.c2{
+  height: 420rpx;
+  width: 420rpx;
+  background-color: rgba(255, 255, 255, 0.04);
+ }
+.c3{
+  height: 280rpx;
+  width: 280rpx;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+ }
+ .button-group{
+   position: absolute;
+   bottom: 80rpx;
+   color:#fff;
+   left: 0;
+   right: 0;
+   margin:0 auto;
+   text-align: center;
+   font-size: 25rpx;
+   line-height: 80rpx;
+ }
+ .findJob{
+   margin:0 auto;
+   height: 80rpx;
+   border-radius: 40rpx;
+   width: 70%;
+   background-color: #00AEFF;
+   border: none;
+   box-shadow: 0 10rpx 5rpx rgba(0, 104, 182,.2);
+   margin-bottom: 40rpx;
+ }
+  .findPerson{
+   margin:0 auto;
+   border-radius: 40rpx;
+   height: 80rpx;
+   width: 70%;
+   background-color: #0068B6;
+   box-shadow: 0 10rpx 5rpx rgba(0, 104, 182,.2);
+   border: none;
+ }
+ .backIndex{
+   text-align: center;
+   width: 100rpx;
+   padding: 0 20rpx;
+   height: 60rpx;
+   background-color: #fff;
+   line-height: 60rpx;
+   border:5rpx solid #999;
+   border-radius: 30rpx;
+ }
+  .backIndex .iconfont{
+    transform: translateY(-5%);
+  }

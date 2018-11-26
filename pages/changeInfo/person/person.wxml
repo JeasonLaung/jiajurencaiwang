@@ -1,0 +1,184 @@
+<!--pages/changeInfo/person/person.wxml-->
+<!-- <text>pages/changeInfo/person/person.wxml</text> -->
+<!-- <wxs module="m1">
+	function showEnterKey(s){
+		return s.replace(/\r|\n/g,"<br/>")
+	}
+	module.exports.showEnterKey = showEnterKey
+</wxs> -->
+<view class="changeInfo-person">
+	<view class="form-title">
+			基本信息
+	</view>
+	<view class="form-list">
+
+		<view class="form-item">
+			<view class="lf">
+				头像
+			</view>
+			<view class="bd rt">
+				<image class='face' src="https://m.v2.51renc.com{{formBase.logo}}" bindtap="changeFace"></image>
+			</view>
+			<!-- <view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view> -->
+		</view>
+		<view class="form-item" bindtap="readyChangeName">
+			<view class="lf">
+				姓名
+			</view>
+				<!-- <view  class="bd">请选择年龄</view> -->
+				<input type="text" disabled="disabled" value="{{formBase.name}}"/>
+				<prompt id="prompt" bindyes="changeName"></prompt>
+		</view>
+
+
+		<view class="form-item">
+			<view class="lf">
+				年龄
+			</view>
+			<picker mode="date" value="{{formBase.birth_year}}" start="1970-09-01" bindchange="bindDateChange">
+				<!-- <view  class="bd">请选择年龄</view> -->
+				<input type="text" placeholder="请选择年龄" disabled="disabled" value="{{yearOld}}"/>
+			</picker>
+			<view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view>
+		</view>
+			<view class="form-item">
+			<view class="lf">
+				学历
+			</view>
+			<picker value="{{formBase.degree}}" bindchange="bindDegreeChange" range="{{degreeArr}}">
+				<input type="text" placeholder="请选择学历" disabled="disabled" value="{{formBase.degree}}"/>
+			</picker>
+			<view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view>
+		</view>
+			<view class="form-item">
+			<view class="lf">
+				工作经验
+			</view>
+			<picker value="{{formBase.experience}}" bindchange="bindExperienceChange" range="{{experienceArr}}">
+				<input type="text" placeholder="请选择工作经验" disabled="disabled" value="{{experienceArr[formBase.experience]}}"/>
+			</picker>
+			<view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view>
+		</view>
+	</view>
+	
+	<view class="form-title">
+			绑定院校
+	</view>
+	<view class="form-list">
+		
+		<view class="form-item">
+			<view class="lf">
+				已绑定院校
+			</view>
+			<view class="bd">
+				<input style='color:#888' type="text" placeholder="请选择工作经验" disabled='disabled' value="{{_school_name}}"/>
+			</view>
+			<view class='rt'>
+				<icon class="iconfont icon-password"></icon>
+			</view>
+		</view>
+	</view>
+	
+	<view class="form-title">
+			教育经历
+	</view>
+	<view class="form-list">
+		
+		<block wx:for="{{myEducationArr}}" wx:if="{{myEducationArr}}" wx:key="index">
+			<view class="form-item container" bindtap='editEducation' data-dataJson="{{item}}">
+				<view  class="title"><text>{{item.school}}</text><icon class="iconfont icon-write" style="color:#1473BB"></icon></view>
+				<view class="body" style=""><text>{{item.degree}} {{item.major}}</text><text>{{item.from}} 至 {{item.to}}</text></view>
+			</view>
+		</block>
+		<view class="form-item" bindtap="addEducation">
+			<view class="bd ct" style='color:#1473BB'>
+				<icon class="iconfont icon-add" style="margin-right:10rpx;"></icon>新增教育经历
+			</view>
+		</view>
+	</view>
+
+	<view class="form-title">
+			我的能力特长
+	</view>
+	<view class="form-list">
+		
+		<view class="tags">
+			<block wx:for="{{labelArr}}" wx:key="index">
+				<view class="tag">{{item.label_name}}</view>
+			</block>
+			
+			<view class="tag active" bindtap="editLabel">编辑我的特长</view>
+		</view>
+	</view>
+
+	<view class="form-title">
+			工作经历
+	</view>
+	<view class="form-list">
+		
+		<block wx:for="{{myExperienceArr}}" wx:if="{{myExperienceArr}}" wx:key="index">
+			<view class="form-item container" bindtap='editExperience' data-dataJson="{{item}}">
+				<view  class="title"><text>{{item.company}}</text><icon class="iconfont icon-write" style="color:#1473BB"></icon></view>
+				<view class="body"><text>{{item.title}}</text><text>{{item.from}} 至 {{item.to}}</text></view>
+				<rich-text  class="description" nodes="{{item.description}}"></rich-text>
+			</view>
+		</block>
+		<view class="form-item" bindtap='addExperience'>
+			<view class="bd ct" style='color:#1473BB'>
+				<icon class="iconfont icon-add" style="margin-right:10rpx;"></icon>新增工作经历
+			</view>
+		</view>
+	</view>
+
+	<view class="form-title">
+			求职意愿
+	</view>
+	<view class="form-list" style="margin-bottom:50rpx;">
+		
+		<view class="form-item">
+			<view class="lf">
+				期待岗位
+			</view>
+			<picker value="{{formExpect.career}}" range="{{jobTypeArr}}" bindchange="bindJobTypeChange">
+				<input type="text" placeholder="请选择期待岗位" disabled="disabled" value="{{formExpect.career}}"/>
+			</picker>
+			<view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view>
+		</view>
+		<view class="form-item">
+			<view class="lf">
+				期待工作地点
+			</view>
+			<picker value="{{formExpect.city}}" range="{{provinceCityArr}}" bindchange="bindCityChange" mode="multiSelector" bindcolumnchange="bindProvinceChange">
+				<input type="text" placeholder="请选择期待工作地点" disabled="disabled" value="{{formExpect.city}}"/>
+			</picker>
+			<view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view>
+		</view>
+		<view class="form-item">
+			<view class="lf">
+				期待薪资
+			</view>
+			<picker value="{{formExpect.salary}}" range="{{salaryArr}}" bindchange="bindSalaryChange">
+				<input type="text" placeholder="请选择期待薪酬" disabled="disabled" value="{{formExpect.salary}}"/>
+			</picker>
+			<view class="rt">
+				<icon class="iconfont icon-bottom"></icon>
+			</view>
+		</view>
+	</view>
+
+
+	<toast id="toast"></toast>
+
+</view>

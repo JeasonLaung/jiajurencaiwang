@@ -1,0 +1,41 @@
+<!--pages/companyDetail/companyDetail.wxml-->
+<!-- <text>pages/companyDetail/companyDetail.wxml</text> -->
+<wxs src="../common/wxs/common.wxs" module="m1"></wxs>
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="companyDetail" wx:if="{{companyInfo!=false}}">
+    <view class="company-short">
+      <view class="company-logo" style="{{companyInfo.logo ? 'background-image:url('+host+companyInfo.logo+')' : ''}}">
+      </view>
+      <view class="company-extra">
+        <view class="company-name">{{companyInfo.name}}</view>
+        <view class="company-city">{{m1.delLastWord(companyInfo.province)}} {{m1.delLastWord(companyInfo.city)}}</view>
+      </view>
+    </view>
+    <view class="location">
+        <icon class="iconfont icon-location" style="margin-right:10rpx;color:#4396D3;transform: translateY(-5rpx);"></icon>
+        {{companyInfo.ad_url ? companyInfo.ad_url :'暂无'}}
+    </view>
+    <view class="detail-cell"  wx:if="{{imgArr}}">
+      <view class="title">公司图片</view>
+      <view class="body">
+        <swiper indicator-dots="true"  autoplay="true" interval="3000" duration="500" circular="true">
+          <block wx:for="{{imgArr}}" wx:key="index">
+            <swiper-item style="display:flex;justify-content:center">
+              <image src="{{host+item}}" class="slide-image" mode="scaleToFill"/>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+    <view class="detail-cell" >
+      <view class="title">公司简介</view>
+      <view class="body">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      </view>
+    </view>
+
+    <view class="detail-cell" style="margin-bottom:0;border-bottom:2rpx solid #eee">
+      <view class="title">在招职位</view>
+    </view>
+    <positionItem dataArr="{{companyWithJob}}" dayAgoArr="{{[]}}" bind:goLink="positionGoLink"></positionItem>
+</view>

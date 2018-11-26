@@ -1,0 +1,60 @@
+<template name="me">
+	<view class="me">
+		<view class="userheader" style="background-image:url(https://m.v2.51renc.com/static/img/mine-bg_02.65e6f77.png)">
+<!-- 			<view class="showResume">
+				展示简历<switch checked="true" color="#26A2FF"></switch>
+			</view> -->
+			<view class="logo" style="background-image:url({{me.img}})">
+			</view>
+			<view class="detail">
+				<view>
+					<view class="name">{{me.name}}</view>
+					<view class="point">积分：{{me.score}}</view>
+				</view>
+				<view class="lv">
+					<view>LV0</view>
+					 <progress percent="{{me.percent}}" activeColor="#FFC500" active style="width:300rpx;margin:0 20rpx" stroke-width="4" border-radius="1"/>
+					 <view>{{me.point}}/{{me.pool}}</view>
+				</view>
+			</view>
+		</view><!-- userheader -->
+		<view class="list">
+			<navigator class="list-item" url="../changeInfo/person/person">
+				<view class="lf">
+					<icon class="iconfont icon-resume"></icon>
+				</view>
+				<view class="bd">我的简历</view>
+				<view class="rt"><icon class="iconfont icon-right"></icon></view>
+			</navigator>
+			<navigator class="list-item" url="../changeInfo/project/project">
+				<view class="lf">
+					<icon class="iconfont icon-production"></icon>
+				</view>
+				<view class="bd">我的作品</view>
+				<view class="rt"><icon class="iconfont icon-right"></icon></view>
+			</navigator>
+			<!-- <navigator class="list-item" url="../test/test">
+				<view class="lf">
+					<icon class="iconfont icon-mission"></icon>
+				</view>
+				<view class="bd">任务大厅</view>
+				<view class="rt"><icon class="iconfont icon-right"></icon></view>
+			</navigator> -->
+			<navigator class="list-item" url="../changeInfo/editPassword/editPassword">
+				<view class="lf">
+					<icon class="iconfont icon-account"></icon>
+				</view>
+				<view class="bd">账号管理</view>
+				<view class="rt"><icon class="iconfont icon-right"></icon></view>
+			</navigator>
+			<view class="list-item" bindtap="logout">
+				<view class="lf">
+					<icon class="iconfont icon-logout"></icon>
+				</view>
+				<view class="bd">退出登录</view>
+				<view class="rt"><icon class="iconfont icon-right"></icon></view>
+			</view>
+		</view>
+	</view>
+
+</template>

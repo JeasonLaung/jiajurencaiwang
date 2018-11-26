@@ -1,0 +1,15 @@
+<!--components/popup/popup.wxml-->
+<!-- popup -->
+<!-- popup :bottom/top/left/right(移动) :position(位置) :show(展示) -->
+<view wx:if="{{show}}">
+
+  <!-- 弹出 -->
+  <view class="dialog {{position}}}" style="{{left ? 'left:' + left + ';' : ''}}{{right ? 'right:' + right + ';' : ''}}{{bottom ? 'bottom:' + bottom + ';' : ''}}{{top ? 'top:'+ top : ''}}">
+    <slot></slot>
+  </view>
+
+  <!-- 创建蒙版 -->
+  <view class="mask" catchtap='closeModal'></view>
+
+
+</view>

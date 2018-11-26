@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "",
+	"usingComponents":{
+		"sinput":"../../../components/sinput/sinput",
+		"toast":"../../../components/toast/toast"
+	}
+}

@@ -1,0 +1,4 @@
+function isContain(arr, child) {
+  return arr.indexOf(child) == -1 ? false : true
+}
+module.exports.isContain = isContain

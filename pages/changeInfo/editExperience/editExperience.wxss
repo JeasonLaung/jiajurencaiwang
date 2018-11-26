@@ -1,0 +1,15 @@
+/* pages/changeInfo/editExperience/editExperience.wxss */
+
+.editExperience{
+	height: 100%;
+	background-color:#fff
+}
+.form-item .container{
+	padding:20rpx 0;
+	width: 100%;
+}
+.container textarea{
+	width: 100%;
+	border:2rpx solid #ddd;
+	background-color: #fefefe;
+}

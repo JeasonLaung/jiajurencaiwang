@@ -1,0 +1,34 @@
+<!--pages/common/city.wxml-->
+<!-- <text>pages/common/city.wxml</text> -->
+
+<view class="city">
+  <!-- <view class="city-top"></view> -->
+  <view class="city-body">
+      <view class="city-left">
+        <!-- 自定义 -->
+        <view class="provices-item {{hotShow ? 'active' : ''}}" data-province_id="0}" bindtap='openHotShow'>常用&热门</view>
+
+        <!-- API获取 -->
+        <view wx:for="{{provinces}}" wx:key="{{item.id}}" data-province_id="{{item.id}}" catchtap='cityFunction' class="provices-item {{provinceActiveId == item.id ? 'active' : ''}}"> {{item.short_name}}</view>
+        <!-- <view wx:for="{{100}}" wx:key="index">{{item}}</view> -->
+      </view>
+      
+      <view class="city-right">
+        <!-- 自定义写死在data里可以改 -->
+        <view style='margin-top:32rpx;'>
+          <view wx:for="{{hot}}" wx:key="index"  wx:if="{{hotShow}}" style='margin-bottom:80rpx;'>
+          <view style="margin-bottom:32rpx">{{item.name}}</view>
+            <view wx:for="{{item.arr}}" wx:key="index" wx:for-item="i" class="cities-item cities-item-extra {{activeCityName == i ? 'active' : ''}}" wx:if="{{i}}" data-name='{{i}}' bindtap='chooseCity'>
+              {{i}}
+            </view>
+          </view>
+        </view>
+        
+        <!-- API获取 -->
+        <view class="cities-group" wx:if="{{!hotShow}}" >
+          <view wx:for="{{cities}}" wx:key="{{item.id}}" class="cities-item {{activeCityName == item.short_name ? 'active' : ''}}" data-name="{{item.short_name}}" bindtap='chooseCity'>{{item.short_name}}</view>
+        </view>
+        
+      </view>
+  </view>
+</view> 

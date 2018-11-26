@@ -1,0 +1,86 @@
+
+.editProject{
+	display: flex;
+	flex-direction: column;
+}
+.nomore{
+	flex:1;
+	align-items: center;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	color: #999;
+
+}
+.project-body{
+	width: 100%;
+	padding: 20rpx 20rpx; 
+}
+.projects{
+	padding:20rpx;
+	flex:1;
+}
+.projects .container{
+	padding:20rpx;
+	margin-bottom: 20rpx;
+}
+.detail{
+	display: flex;
+	justify-content: space-between;
+}
+.detail .name{
+	font-size: 40rpx;
+	font-weight: bolder;
+	max-width: 500rpx;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+}
+.detail .visit{
+	font-size: 30rpx;
+	font-weight: thin;
+	color: #999;	
+}
+.icon-visit{
+	margin-left: 15rpx;
+}
+.btns{
+	display: flex;
+	justify-content: flex-end;
+
+}
+.btns .submit,.btns .delete{
+	margin:0;
+	width: 150rpx;
+	margin-left: 20rpx;
+
+	margin-top: 10rpx; 
+}
+.project-body{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between; 
+	width: 100%;
+}
+.img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-height: 500rpx;
+	overflow: hidden;
+	border-bottom: 1rpx solid #eee
+}
+
+.img image{
+	margin: 0 auto;
+	max-height: 500rpx;
+	max-width: 700rpx;
+}
+.icon-add{
+	transform: translateY(-10rpx);
+}
+.bd .ct{
+	align-items: center;
+	display: flex;
+
+}

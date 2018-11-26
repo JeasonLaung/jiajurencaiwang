@@ -1,0 +1,25 @@
+send
+{to: "286", cmd: "message", content: "."}
+cmd: "message"
+content: "."
+to: "286"}
+{
+cmd: "message"
+content: "<img src="/static/face/4.gif">"
+to: "286"
+}
+reuturn 
+{"to":"286","cmd":"fromMsg","content":".","have_arrive":0,"from_phone":"18680026210","fromid":"4450","from_user_type":"personal","to_phone":"17665321233"}	
+
+
+{"cmd":"getUserHistory","to":"286"}
+ {cmd: "getUserHistory", to: "286"}
+
+
+get
+
+{"cmd":"getHistory","history":[{"id":"953","from_phone":"18680026210","from_user_type":"personal","to_phone":"18816795325","content":".","has_arrive":"0","created":"2018-11-22 22:35:36"},{"id":"954","from_phone":"18680026210","from_user_type":"personal","to_phone":"18816795325","content":".","has_arrive":"0","created":"2018-11-22 22:35:44"}],"to_info":{"logo":"\/upload-files\/c_logo_uploads\/20180923\/58d134ef12d32dc7e47ff65647baba9a.png","name":"\u5e7f\u5ddeSS\u79d1\u6280\u6709\u9650\u516c\u53f8"}}	
+
+
+
+{"cmd":"getHistory","history":[{"id":"955","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"3<div><br><\/div><div><br><\/div>","has_arrive":"0","created":"2018-11-22 22:45:23"},{"id":"956","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"3","has_arrive":"0","created":"2018-11-22 22:46:56"},{"id":"957","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":".","has_arrive":"0","created":"2018-11-22 22:47:06"},{"id":"958","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"<img src=\"\/static\/face\/4.gif\">","has_arrive":"0","created":"2018-11-22 22:54:55"},{"id":"959","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"123","has_arrive":"0","created":"2018-11-22 23:15:27"},{"id":"960","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"1","has_arrive":"0","created":"2018-11-23 00:09:06"},{"id":"961","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"12","has_arrive":"0","created":"2018-11-23 00:09:08"},{"id":"962","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"<img src=\"\/static\/face\/19.gif\">","has_arrive":"0","created":"2018-11-23 00:09:11"},{"id":"963","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"<img src=\"\/static\/face\/12.gif\">","has_arrive":"0","created":"2018-11-23 00:09:14"},{"id":"964","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"1<div>2<\/div><div>3<\/div><div>4<\/div><div>4<\/div><div>5<\/div><div>6<\/div><div>7<\/div><div>8<\/div><div>9<\/div><div><br><\/div>","has_arrive":"0","created":"2018-11-23 00:09:51"},{"id":"965","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"&lt;b&gt;123<div>&lt;\/b&gt;<\/div>","has_arrive":"0","created":"2018-11-23 00:10:14"},{"id":"966","from_phone":"18680026210","from_user_type":"personal","to_phone":"17665321233","content":"1","has_arrive":"0","created":"2018-11-23 00:11:24"}],"to_info":{"logo":"\/upload-files\/20180316\/9f9818dc97c9d4d309a0c5073a751f0f.jpeg","name":"\u767e\u5ea6"}}	

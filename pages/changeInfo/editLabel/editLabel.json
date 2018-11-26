@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "",
+	"usingComponents":{
+		"prompt":"../../../components/prompt/prompt",
+		"toast":"../../../components/toast/toast"
+	}
+}

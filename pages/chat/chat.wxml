@@ -1,0 +1,69 @@
+<view class="chat-page" wx:if="{{to_name}}">
+	<!-- <view calss="header"><text>{{name}}</text></view> -->
+	<scroll-view  class="chat-body" bindtap="closeAll" scroll-y="true" scroll-with-animation="true" 	scroll-top="{{scrollTop}}" enable-back-to-top="true" bindscroll="scrollAction">
+		<!-- scroll-y scroll-top="{{scrollTop}}" -->
+		<block wx:for="{{history}}" wx:key="index">
+			<!-- 我将的话 -->
+			<view class="one-chat Isay" wx:if="{{item.from_phone == own_username}}">
+				<view class="qipao">
+					<rich-text class='rich-text' nodes="{{item.content}}" bindtap="openPic" style='display:flex' data-picindex="{{item.picIndex != undefined ? item.picIndex : -1}}"></rich-text>
+				</view>
+				<view class="logo">
+					<image class="logo" src="{{host+own_logo}}" mode="scaleToFill"></image>
+				</view>
+				
+			</view>
+			<!-- 别人讲的话 -->
+			<view class="one-chat othersay" wx:else="">
+				<view class="logo">
+					<image class="logo" src="{{host+to_logo}}"  mode="scaleToFill"></image>
+				</view>
+				<view class="qipao">
+					<rich-text class='rich-text' nodes="{{item.content}}" style='display:flex'></rich-text>
+				</view>
+			</view>
+		</block>
+		
+	</scroll-view>
+	<view style="height:110rpx;"></view>
+	<view class="chat-tool">
+		<view class="chat-input" adjust-position="true">
+			<view class="submit" bindtap="openFastMsg">常用语</view>
+			<textarea auto-height="true" class="chat-text" maxlength="50" bindinput='refreshText' value="{{text}}"></textarea>
+			<view bindtap="openEmoji"><icon class="iconfont icon-biaoqing"></icon></view>
+
+			<view class="addPic" bindtap="sendPic" wx:if="{{!text}}"><icon class="iconfont icon-add"></icon></view>
+			<view class="submit send" bindtap="sendText" wx:if="{{text}}">发送</view>
+		</view>
+		<view wx:if="{{showFastMsg}}" class="fastMsg-body">
+			<view class="" style="max-height:500rpx;overflow:scroll;width:100%;padding:10rpx 0 40rpx">
+				<view class="fastMsg" bindtap="sendFastMsg" data-msg="您好，请问贵公司招聘应届毕业生吗？">
+					您好，请问贵公司招聘应届毕业生吗？
+				</view>
+				<view class="fastMsg" bindtap="sendFastMsg" data-msg="您好，我还没毕业，贵公司有实习生需求吗？">
+					您好，我还没毕业，贵公司有实习生需求吗？
+				</view>
+				<block wx:for="{{replyArr}}" wx:key="index">
+					<view class="fastMsg" data-msg="{{item.content}}" bindtap="sendFastMsg">
+						{{item.content}}
+					</view>
+				</block>
+			</view>
+			<view class="addFastMsg" bindtap="addFastMsg">
+				<icon class="iconfont icon-add"></icon>新增
+			</view>
+		</view>
+	</view>
+	
+</view>
+
+<prompt id="prompt" bindyes="addFastMsgAction"></prompt>
+<toast id="toast"></toast>
+
+<popup show="{{showEmoji}}" postition="bottom" bottom="110rpx">
+	<view class="emoji-ban">
+		<block wx:for="{{emojiArr}}" wx:key="index">
+			<image class="emoji" src="{{host+'/static/face/'+item+'.gif'}}" mode="scaleToFill" bindtap="sendEmoji" data-url="<img src='/static/face/{{item}}.gif'/>"></image>
+		</block>
+	</view>
+</popup>

@@ -1,0 +1,21 @@
+<!--pages/templates/loginType/loginType.wxml-->
+
+<template name="loginType">
+  <view class="loginType">
+    <view class="loginType-container" style="background-image: url('https://m.v2.51renc.com/static/img/login-bg.6ffe541.png');">
+      <view class="circle c1">
+        <view class="circle c2">
+          <view class="circle c3" style="background-image: url('https://m.v2.51renc.com/static/img/logo_03.13988b3.png');">
+          </view>
+        </view>
+      </view><!-- circle -->
+      <view class="button-group">
+        <view class='findJob' bindtap='loginTypeChoose' data-type="person">我要找工作</view>
+        <!-- <view class="findPerson" bindtap='loginTypeChoose' data-type="company">我要招人才</view> -->
+      </view><!-- button-group -->
+    </view><!-- loginType-container -->
+    <view style='display:flex;justify-content:center'>
+      <view  class="backIndex" bindtap='closeLoginType'><icon class='iconfont icon-left'></icon> 返回</view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,36 @@
+@import '../../icon.wxss'
+.select{
+	display: flex;
+	position: relative;
+	font-size: 32rpx;
+	background-color: #fff;
+	/*padding: 0 20rpx;*/
+}
+.select .lf{
+	width: 230rpx;
+	display: flex;
+	align-items: center;
+}
+.select picker{
+	flex: 1;
+}
+.select .rt{
+	position: absolute;
+	right: 20rpx;
+	display: flex;
+	align-items: center;
+}
+.select .rt .iconfont{
+	font-size: 25rpx;
+	transform: translateY(-5rpx);
+}
+/*{
+	padding: 30rpx 0;
+}*/
+.select .lf,.select .rt,.select picker input{
+	padding: 30rpx 0 ;
+}
+.select .lf,.select picker{
+	box-sizing: border-box;
+	border-bottom: 1rpx solid #eee;
+}

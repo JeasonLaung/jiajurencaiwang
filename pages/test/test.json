@@ -1,0 +1,12 @@
+{
+	"navigationBarTitleText":"家居人才网",
+  "usingComponents":{
+    "search":"../../components/search/search",
+    "tabBar":"../../components/tabBar/tabBar",
+    "prompt":"../../components/prompt/prompt",
+    "select":"../../components/select/select",
+    "city-select":"../@components/city-select/city-select",
+    "college-select":"../@components/college-select/college-select",
+    "message":"../message/message"
+  }
+}

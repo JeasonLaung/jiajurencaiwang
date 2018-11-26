@@ -1,0 +1,9 @@
+<view class="select">
+	<view class="lf"><slot></slot>{{title}}</view>
+	<picker range="{{_range}}" bindchange="_bindchange" mode="{{mode}}" bindcolumnchange="_bindcolumnchange" bindcancel="_bindcancel" value="{{pvalue}}">
+		<input type="text" placeholder="请选择{{title}}" disabled="disabled" value="{{value?value:_value}}"/>
+	</picker>
+	<view class="rt">
+		<icon class="iconfont icon-bottom"></icon>
+	</view>
+</view>

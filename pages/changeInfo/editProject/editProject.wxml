@@ -1,0 +1,31 @@
+<!--pages/changeInfo/editProject/editProject.wxml-->
+<!-- <text>pages/changeInfo/editProject/editProject.wxml</text> -->
+<view class="editProject">
+	<view class="form-list">
+		<view class="form-item container" bindtap="upload">
+			<view class="img" data-url="{{form.work_url}}" wx:if="{{form.signedUrl}}">
+				<image src="{{form.signedUrl}}" mode="aspectFit" class="projectLogo"></image>
+			</view>
+			<view class="img" data-url="{{form.work_url}}" wx:if="{{!form.signedUrl}}">
+				<view><icon class="iconfont icon-nopic" style="font-size:100rpx"></icon></view>
+				<text>点击上传作品封面</text>
+			</view>
+		</view>
+		<view class="form-item">
+			<view class='lf'>全景作品链接</view>
+			<view class="bd">
+				<sinput placeholder="请输入全景作品链接" style="width:100%" bind:reset="urlChange" bind:input="urlChange" value="{{form.work_url}}"></sinput>
+			</view>
+		</view>
+		<view class="form-item">
+			<view class='lf'>作品名称</view>
+			<view class="bd">
+				<sinput placeholder="请输入作品名称" style="width:100%" bind:reset="titleChange" bind:input="titleChange" value="{{form.title}}"></sinput>
+			</view>
+		</view>
+		
+	</view>
+	<view class="submit {{canIsubmit ? '':'disabled'}}" style="margin-top:30rpx;" bindtap="edit">保存</view>
+</view>
+
+<toast id="toast"></toast>

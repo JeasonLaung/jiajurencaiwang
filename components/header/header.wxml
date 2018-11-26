@@ -1,0 +1,6 @@
+<!--components/header/header.wxml-->
+<!-- <text>components/header/header.wxml</text> -->
+<view class="header">
+  <view class="header-title"><slot></slot></view>
+  <icon class="iconfont icon-left"></icon>
+</view>

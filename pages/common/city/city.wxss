@@ -1,0 +1,76 @@
+/* pages/common/city.wxss */
+.city{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.city-body{
+  flex: 1;
+  display: flex;
+}
+/* .city-top{
+  height: 88rpx;
+} */
+.city-left{
+  background-color: #fff;
+  width: 250rpx;
+  overflow: scroll;
+
+}
+.provices-item{
+  text-indent: 26rpx;
+  font-size: 26rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.active.provices-item{
+  background-color: #f5f5f5;
+  color: #0068B6;
+}
+
+
+
+.city-right{
+  flex:1;
+  overflow: scroll;
+  background-color: #f5f5f5;
+  font-size: 26rpx;
+  padding-left: 60rpx;
+
+}
+.cities-group{
+  margin-top: 80rpx;
+}
+.cities-item{
+  width:180rpx;
+  height: 50rpx;
+  color: #666;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 6rpx;
+  border: 2rpx solid #ddd;
+  margin-bottom:20rpx;
+  padding: 3rpx 0rpx; 
+  display: inline-block;
+}
+.active.cities-item{
+  background-color: #0068B6;
+  color: #fff;
+  border-color: #0068B6;
+}
+
+.cities-item:nth-of-type(2n-1){
+  margin-right: 50rpx;
+}
+.cities-item-extra.cities-item:nth-of-type(2n-1){
+  margin-right: 0rpx;
+}
+.cities-item-extra:nth-of-type(2n){
+  margin-right: 50rpx;
+}
+

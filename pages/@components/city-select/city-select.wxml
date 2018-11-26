@@ -1,0 +1,1 @@
+<select title="{{title}}" range="{{[province,city]}}" mode="multiSelector" keys="{{['short_name','short_name']}}" bindcolumnchange="changeProvince" id="select" bindchange="_bindchange" split="{{split}}" show="{{show}}"><slot></slot></select>

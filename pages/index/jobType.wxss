@@ -1,0 +1,31 @@
+.jobTypeTabBar-body{
+  padding: 50rpx 26rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #f5f5f5;
+}
+.jobTypeTabBar-item.active{
+  border: 2rpx solid #0068B6;
+  background-color: #0068B6;
+  color: #fff;
+}
+.jobTypeTabBar-item{
+  padding: 5rpx 10rpx;
+  margin-top:20rpx;
+  width:179rpx;
+  border-radius: 10rpx;
+  height: 50rpx;
+  color: #666;
+  background-color: #fff;
+  border: 2rpx solid #ddd;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+/*后三个不需要marginbottom*/
+.jobTypeTabBar-item:nth-child(1),
+.jobTypeTabBar-item:nth-child(2),
+.jobTypeTabBar-item:nth-child(3){
+  margin-top:0;
+}

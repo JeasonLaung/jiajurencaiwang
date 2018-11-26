@@ -1,0 +1,119 @@
+<wxs module="m1">
+	function isIn(a,b){
+		return b.indexOf(a) == -1 ? false : true
+	}
+	module.exports.isIn = isIn
+</wxs>
+<view class="page">
+	<view class="tabBar">
+		<view class="tabBar-items">
+			<block wx:for="{{tabBarArr}}" wx:key="index">
+				<view class="tabBar-item {{currentTab == index ? 'write' : ''}} {{currentTab > index ? 'complete' : ''}}">
+					<view><icon class="iconfont icon-{{item.icon}}"></icon></view>
+					<view>{{item.title}}</view>
+					<view wx:if="{{currentTab > index}}" class="tabBar-icon" style="z-index:10"><icon class="iconfont icon-tick"></icon></view>
+				</view>
+			</block>
+		</view>
+		<view class="tabBar-border">
+			<view class="tabBar-border-tump" style="left:{{150*currentTab}}rpx"></view>
+		</view>
+	</view>
+
+	<swiper current="{{currentTab}}" duration="300"  bindchange="onPageChange" class='swiper-pages'>
+		<swiper-item class="swiper-page">
+			<view class="form-list">
+				<!-- face -->
+				<view class="form-item noborder" style="">
+					<view class="bd ct" >
+						<view class="face" bindtap="upload">
+							<view wx:if="{{!form.info.logo}}">
+								<icon class="iconfont icon-nopic"></icon>
+								<view>上传图标</view>
+							</view>
+							<image src="{{host+form.info.logo}}" wx:if="{{form.info.logo}}" mode="aspectFit" style="width:180rpx;height:180rpx"></image>
+						</view>
+					</view>
+				</view><!-- face -->
+
+				<!-- 文本 -->
+				<view class="form-item">
+					<view class="lf"><text class="rp"></text>公司全称</view>
+					<view class="bd">
+						<sinput placeholder="请输入公司全称" bindinput="onInput" bindreset="onInput" data-to="info.name"></sinput>
+					</view>
+				</view><!-- 文本 -->
+				<view class="form-item">
+					<view class="lf"><text class="rp"></text>企业简称</view>
+					<view class="bd">
+						<sinput placeholder="请输入企业简称" bindinput="onInput" bindreset="onInput" data-to="info.brief_name"></sinput>
+					</view>
+				</view><!-- 文本 -->
+
+				<city-select title="省市" show="true" split="-" bindchange="onCityChange"><view class="rp"></view></city-select>
+			</view>
+		</swiper-item>
+		<swiper-item class="swiper-page">
+			<!-- face -->
+			<view class="form-list">
+				<view class="form-item noborder" style="">
+					<view class="bd ct" >
+						<view class="face" bindtap="upload">
+							<view wx:if="{{!form.info.hr_logo}}">
+								<icon class="iconfont icon-nopic"></icon>
+								<view>上传头像</view>
+							</view>
+							<image src="{{host+form.info.logo}}" wx:if="{{form.info.logo}}" mode="aspectFit" style="width:180rpx;height:180rpx"></image>
+						</view>
+					</view>
+				</view><!-- face -->
+				<!-- 文本 -->
+				<view class="form-item">
+					<view class="lf"><text class="rp"></text>姓名</view>
+					<view class="bd">
+						<sinput placeholder="请输入姓名" bindinput="onInput" bindreset="onInput" data-to="hr.hr_name"></sinput>
+					</view>
+				</view><!-- 文本 -->
+				<!-- 文本 -->
+				<view class="form-item">
+					<view class="lf"><text class="rp"></text>职位</view>
+					<view class="bd">
+						<sinput placeholder="请输入职位" bindinput="onInput" bindreset="onInput" data-to="hr.hr_position"></sinput>
+					</view>
+				</view><!-- 文本 -->
+				<!-- 文本 -->
+				<view class="form-item">
+					<view class="lf"><text class="rp"></text>邮箱</view>
+					<view class="bd">
+						<sinput placeholder="请输入邮箱" bindinput="onInput" bindreset="onInput" data-to="hr.hr_email" bindblur="checkEmail"></sinput>
+					</view>
+				</view><!-- 文本 -->
+				<!-- 文本 -->
+				<view class="form-item">
+					<view class="lf"><text class="rp"></text>手机号</view>
+					<view class="bd">
+						<sinput placeholder="请输入手机号" bindinput="onInput" bindreset="onInput" data-to="hr.hr_mobile" type="number" bindblur="checkPhone"></sinput>
+					</view>
+				</view><!-- 文本 -->
+			</view>
+		</swiper-item>
+		<swiper-item class="swiper-page">
+			123456
+		</swiper-item>
+		<swiper-item class="swiper-page">
+			123456
+		</swiper-item>
+		<swiper-item class="swiper-page">
+			123456
+		</swiper-item>
+	</swiper>
+	<!-- 占位 -->
+	<view class="placearea"></view>
+
+	<view class="btn">
+		<view class="submit" bindtap="nextStep">{{currentTab < 4 ? "下一步" : (currentTab == 4 ? '注册' : '完成')}}</view>
+	</view>
+</view>
+
+<toast id="toast"></toast>
+<prompt id="prompt" bind:yes="addTag"></prompt>

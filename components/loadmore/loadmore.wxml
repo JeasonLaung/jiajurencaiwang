@@ -1,0 +1,6 @@
+<!--components/loadmore/loadmore.wxml-->
+<!-- <text>components/loadmore/loadmore.wxml</text> -->
+<view wx:if="{{showLoad}}" class="loading">
+  <image src="{{iconPath}}" class="loading-image"></image>
+  <text>{{message}}</text>
+</view>

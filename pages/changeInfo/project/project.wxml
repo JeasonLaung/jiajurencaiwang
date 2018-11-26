@@ -1,0 +1,31 @@
+<view class="editProject">
+	<view class="projects">
+		<block wx:for="{{project}}" wx:key="index" wx:if="{{project!=false}}">
+			<view class="form-item container">
+				<view class="img" data-url="{{item.work_url}}">
+					<image src="{{item.signedUrl}}" mode="aspectFit" class='img-logo'></image>
+				</view>
+				<view class="project-body">
+					<view class="detail">
+						<view class="name">{{item.title}}</view>
+						<view class="visit">{{item.viewing_count}}<icon class="iconfont icon-visit"></icon></view>
+					</view>
+					<view class="btns">
+						<view class="delete" bindtap="delProject" data-id="{{item.id}}">删除</view>
+						<view class="submit" data-json="{{item}}" bindtap="editProject">编辑</view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+	</view>
+	<view wx:if="{{!project}}" class="nomore">暂无作品</view>
+	<!-- 占位 -->
+	<view style="height:118rpx"></view>
+
+</view>
+	<view class="form-item" bindtap="addProject"  style='color:#1473BB;position:fixed;bottom:0;width:100%;left:0rpx;border-top:2rpx solid #ddd;'>
+		<view class="bd ct">
+			<icon class="iconfont icon-add" style="margin-right:10rpx;left:0;"></icon>新增更多作品
+		</view>
+	</view>

@@ -1,0 +1,6 @@
+{
+	"component":true,
+	"usingComponents":{
+		"positionItem":"../common/positionItem/positionItem"
+	}
+}

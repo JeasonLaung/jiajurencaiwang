@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<!-- <text>{{type}}</text> -->
+<view class="login" style="	background-image: url(https://m.v2.51renc.com/static/img/login_bg2.8ead93e.png)">
+<!-- 	<view class="login-back">
+		<icon class="iconfont icon-close"></icon>
+	</view> -->
+	<view class="login-form">
+		<view style="display:flex;justify-content:center">
+			<image src="/image/logo2.png" style="height:200rpx;width:200rpx;margin:100rpx auto 0"></image>
+		</view>
+		
+		<view class="title">{{type=='person' ? '个人' : '企业'}}用户登录</view>
+		<view class="input">
+			<view class="icon"><icon class="iconfont icon-username"></icon></view><input type="text" placeholder="请输入用户名" bindinput="refeshUsername"/>
+		</view>
+		<view class="input">
+			<view class="icon"><icon class="iconfont icon-password" ></icon></view><input  placeholder="请输入密码" type="password" bindinput="refeshPassword"/>
+		</view>
+		<view class="submit {{!canIsubmit?'disabled':''}}" bindtap="{{type=='person' ? 'loginPerson' : 'loginCompany'}}">
+			登录
+		</view>
+		<view style="margin-top:30rpx;display:flex;justify-content:space-between;color:#888">
+
+			<text bindtap="{{type=='person' ? 'registerPerson' : 'registerCompany'}}">立即注册</text>
+			<text bindtap="{{type=='person' ? 'forgetPerson' : 'forgetCompany'}}">忘记密码</text>
+		</view>
+	</view>
+	<!-- <view class="changeType">
+		<view class="text" bindtap="changeType">
+			{{type=='person' ? '企业' : '个人'}}用户登录
+		</view>
+		
+	</view> -->
+
+
+</view>
+
+<toast position="bottom" id="toast"></toast>

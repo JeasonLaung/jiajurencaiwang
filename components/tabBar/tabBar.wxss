@@ -1,0 +1,35 @@
+/* components/tabBar/tabBar.wxss */
+@import '../../icon.wxss';
+.tabBar{
+  margin-top: 300rpx;
+  /* position: fixed; */
+  /* bottom: 0; */
+  width: 100%;
+  height: 98rpx;
+  background-color: #fff;
+  display: flex;
+  border-top: 2rpx solid #E5E5E5;
+  position:fixed;
+  bottom:0
+}
+.tabBar-item{
+  flex:1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #666;
+}
+.tabBar-item .iconfont{
+  color: #999;
+
+  font-size:40rpx;
+}
+.tabBar-item.active{
+  color: #1A77BD
+}
+.tabBar-item.active .iconfont{
+  color: #1A77BD;
+  font-weight: bolder;
+}

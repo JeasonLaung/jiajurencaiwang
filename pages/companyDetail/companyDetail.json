@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "企业名片",
+  "usingComponents":{
+    "positionItem":"../common/positionItem/positionItem"
+  }
+}

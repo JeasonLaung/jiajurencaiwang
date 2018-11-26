@@ -1,0 +1,8 @@
+<!--components/toast/toast.wxml-->
+<view class="toast" style="{{(position?position:'bottom')+':90rpx'}}" wx:if="{{title && show}}">
+  
+  <view class="title">
+    {{title}}
+  </view>
+  
+</view>

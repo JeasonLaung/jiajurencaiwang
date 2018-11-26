@@ -1,0 +1,21 @@
+<!--components/search/search.wxml-->
+<!-- 搜索 -->
+<view>
+  <view class="search">
+  <!--   style="background-color:{{focus||hasValue ? 'rgb(25,202,173)' : ''}}" -->
+
+    <view class="search-input">
+    <!--   style="background-color:{{focus || hasValue? '#fff' : ''}}" -->
+      <input bindfocus="_focusAction" bindblur="_blurAction" bindinput='_inputAction' value="{{value}}" class="search-text" placeholder='{{focus ? placeholder : ""}}'></input>
+
+      <view class="icon-reset-place" catchtouchstart='_resetAction' wx:if="{{resetShow}}"> <icon class="icon-reset iconfont"></icon></view>
+    </view>
+    
+    <!-- 图标占位符 -->
+    <view class="icon-place}"></view>
+    <!--   style="background-color:{{focus || hasValue? '#fff' : ''}}" -->
+    <icon class="iconfont icon-search {{focus || hasValue  ? 'focus' : ''}}" ></icon>
+  </view>
+</view>
+<!-- 搜索占位 -->
+<!-- <view class="search-place"></view> -->

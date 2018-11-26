@@ -1,0 +1,34 @@
+<view class="forget">
+	<view class="logo-body">
+		<image src="https://m.v2.51renc.com/static/img/nav_logo.847d1a5.png" class="logo" mode="aspectFit"></image>
+	</view>	
+	<block wx:if="{{!canIreset}}">
+		<view class="tel">
+			<view class='phone'><icon class='iconfont icon-phone'></icon></view>
+			<input type="text" placeholder="请输入手机号" bindinput="phoneInput" maxlength="11"/>
+		</view>
+		
+		<view class="code">
+			<input type="text" placeholder="请输入验证码" bindinput="phoneCode"/>
+			<view class="submit {{wait ? 'disabled' : ''}}" bindtap="sendCode" >{{wait ? wait+'s' : '发送验证码'}}</view>
+		</view>
+		<view class="submit" bindtap="submit">提交</view>
+	</block>
+	<block wx:if="{{canIreset}}">
+		<view class="tel">
+			<view class='phone'><icon class='iconfont icon-password'></icon></view>
+			<input type="password" placeholder="请输入新密码" bindinput="passwordInput"/>
+		</view>
+		
+		<view class="tel">
+			<view class='phone'><icon class='iconfont icon-password'></icon></view>
+			<!-- <view class='phone'><icon class='iconfont icon-phone'></icon></view> -->
+			<input type="password" placeholder="请确认新密码" bindinput="repasswordInput" bindblur="repasswordBlur"/>
+		</view>
+		<view class="submit" bindtap="resetAction">提交</view>
+	</block>
+	
+	
+
+</view>
+<toast id="toast"></toast>

@@ -1,0 +1,45 @@
+<!--pages/common/positionItem/positionItem.wxml-->
+
+
+<wxs module="m1">
+  function delLastWord(value){
+      return value.slice(0, value.length-1)
+  }
+  module.exports.delLastWord = delLastWord
+
+</wxs>
+<!-- <text>pages/common/positionItem/positionItem.wxml</text> -->
+<!-- <view style="background-color:#f5f5f5"> -->
+<view class="positionItem" wx:for="{{dataArr}}" wx:key="index" bindtap='_positionGoLink' data-pid="{{item.id}}" data-cid="{{item.id ? item.id : item.company_id}}">
+  <view class='positionItem-company-logo'>
+    <image src="{{host+item.company_info.company_logo}}" class="logo" lazy-load mode="aspectFit"></image>
+  </view>
+  <view class="positionItem-position-detail">
+    <view>
+      <view class="positionItem-position-name">
+        <text>{{item.title}}</text>
+        <text class="positionItem-salary">{{item.min_salary}}-{{item.max_salary}}K</text>
+      </view>
+      <view class="positionItem-company-name">{{item.company}}</view>
+    </view>
+    <view class="positionItem-tag">
+      <view class="positionItem-tag-body">
+        <view class="positionItem-tag-item">
+        {{m1.delLastWord(item.city)}}
+        </view>
+        <view class="positionItem-tag-item">
+          {{item.experience}}
+        </view>
+        <view class="positionItem-tag-item">
+          {{item.degree}}
+        </view>
+      </view>
+      <text>{{dayAgoArr!=false ? dayAgoArr[index] : ''}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- <view wx:if="{{!loadHide}}" class="loading">
+<image src="../../../image/loading.png" class="image"></image>正在加载更多...
+</view>
+</view> -->

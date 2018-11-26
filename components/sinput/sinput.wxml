@@ -1,0 +1,10 @@
+<!--components/sinput/sinput.wxml-->
+<view class="sinput">
+  <input class="sinput-input" type='text' placeholder='{{placeholder}}' bindtap='_tapAction' bindfocus='_focusAction' bindblur='_blurAction' bindinput='_inputAction' value="{{value}}" maxlength="{{maxlength?maxlength:-1}}" type="{{type}}" password="{{password}}"></input>
+  
+  <view class="icon-place" bindtouchstart='_resetAction' wx:if="{{resetShow}}">
+    <icon class="iconfont icon-reset" bindtap='_resetAction'></icon>
+  </view>
+</view>
+
+

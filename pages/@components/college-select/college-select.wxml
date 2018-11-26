@@ -1,0 +1,1 @@
+<select title="{{title}}" bindchange="_bindchange" bindcolumnchange="_columnchange" range="{{[province,city,college]}}" mode="multiSelector" bindcancel="_bindcancel" show="{{show}}" split="{{split}}" pvalue="{{[0,0,0]}}"><slot></slot></select>
