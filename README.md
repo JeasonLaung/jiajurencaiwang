@@ -14,5 +14,3 @@
 ![1](http://jeasonl.xyz:8000/2.jpg)
 ![1](http://jeasonl.xyz:8000/3.jpg)
 ![1](http://jeasonl.xyz:8000/4.jpg)
-![1](http://jeasonl.xyz:8000/5.jpg)
-![1](http://jeasonl.xyz:8000/6.jpg)
