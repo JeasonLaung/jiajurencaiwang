@@ -7,3 +7,12 @@
 ## 但可以联系本人试用体验版（本人邮箱：[605251963@qq.com](http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aV9ZXFtcWFBfWikYGEcKBgQ)）
 
   >项目以[家居人才网](https://m.v2.51renc.com/)为基础，利用微信小程序重构，里面包含<b>实时聊天</b>（websocket）、<b>自编写组件</b>（components），对原网站界面做了小部分优化。
+
+## 以下是浏览图片
+
+http://jeasonl.xyz:8000/1.jpg
+http://jeasonl.xyz:8000/2.jpg
+http://jeasonl.xyz:8000/3.jpg
+http://jeasonl.xyz:8000/4.jpg
+http://jeasonl.xyz:8000/5.jpg
+http://jeasonl.xyz:8000/6.jpg
